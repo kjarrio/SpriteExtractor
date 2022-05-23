@@ -1,0 +1,2 @@
+# SpriteExtractor
+Spritesheet Image Extractor

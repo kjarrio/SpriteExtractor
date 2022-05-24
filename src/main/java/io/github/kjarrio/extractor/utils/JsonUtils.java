@@ -3,8 +3,13 @@ package io.github.kjarrio.extractor.utils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
+import java.io.File;
 
 public class JsonUtils {
+
+    public static Boolean isJsonFile(File jsonFile) {
+        return jsonFile.getName().toLowerCase().endsWith(".json");
+    }
 
     public static Boolean isValidJson(String contents) {
 

@@ -1,51 +1,67 @@
-package io.github.kjarrio.extractor.parsers;
+package io.github.kjarrio.extractor.parsers.json;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.github.kjarrio.extractor.parsers.json.objects.ImageFrame;
+import io.github.kjarrio.extractor.parsers.json.objects.JsonMetaData;
+import io.github.kjarrio.extractor.parsers.SheetParser;
+import io.github.kjarrio.extractor.parsers.AbstractParser;
 import io.github.kjarrio.extractor.utils.ImageUtils;
 import io.github.kjarrio.extractor.utils.JsonUtils;
-import org.apache.commons.io.FileUtils;
 import org.imgscalr.Scalr;
-
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class JsonHashParser {
+public class JsonHashParser extends AbstractParser implements SheetParser {
 
-    private final File inputFile;
-    private final JsonObject json;
+    @Override
+    public Boolean checkType(File inputFile) {
 
-    public JsonHashParser(File inputFile) throws Exception {
-
-        this.inputFile = inputFile;
-
-        String contents = "";
+        if (!JsonUtils.isJsonFile(inputFile)) {
+            return false;
+        }
 
         try {
-            contents = FileUtils.readFileToString(this.inputFile, "UTF-8");
-        } catch (IOException e) {
-            throw new Exception("Error reading file: " + this.inputFile.getAbsolutePath());
+
+            String contents = readFile(inputFile);
+
+            if (!JsonUtils.isValidJson(contents)) {
+                return false;
+            }
+
+            JsonObject json = JsonParser.parseString(contents).getAsJsonObject();
+
+            if (!json.has("frames")) {
+                return false;
+            }
+
+            if (json.get("frames").isJsonObject()) {
+                return true;
+            }
+
+        } catch (Exception e) {
+            return false;
         }
 
-        if (contents.isEmpty() || !JsonUtils.isValidJson(contents)) {
-            throw new Exception("Invalid JSON file: " + this.inputFile.getAbsolutePath());
-        }
-
-        json = JsonParser.parseString(contents).getAsJsonObject();
+        return false;
 
     }
 
-    public void extract(File outputFolder) throws Exception {
+    @Override
+    public void extract(File inputFile, File outputFolder) throws Exception {
+
+        String contents = readFile(inputFile);
+
+        JsonObject json = JsonParser.parseString(contents).getAsJsonObject();
 
         // Parse the meta data
-        Meta metaData = parseMeta();
+        JsonMetaData metaData = parseMeta(json);
 
         // Parse the image frames
-        Map<String, ImageFrame> imageFrames = parseFrames();
+        Map<String, ImageFrame> imageFrames = parseFrames(json);
 
         // Read the input image
         File inputImage = new File(inputFile.getParentFile(), metaData.image);
@@ -77,9 +93,9 @@ public class JsonHashParser {
 
     }
 
-    private Meta parseMeta() {
+    protected JsonMetaData parseMeta(JsonObject json) {
 
-        Meta meta = new Meta();
+        JsonMetaData meta = new JsonMetaData();
 
         JsonObject metaJson = json.getAsJsonObject("meta");
 
@@ -93,7 +109,7 @@ public class JsonHashParser {
 
     }
 
-    private Map<String, ImageFrame> parseFrames() {
+    protected Map<String, ImageFrame> parseFrames(JsonObject json) {
 
         JsonObject frames = json.getAsJsonObject("frames");
 
@@ -128,39 +144,6 @@ public class JsonHashParser {
         }
 
         return imageFrames;
-
-    }
-
-    private static class ImageFrame {
-
-        public String name;
-
-        public Integer frameX;
-        public Integer frameY;
-        public Integer frameW;
-        public Integer frameH;
-
-        public Boolean rotated;
-        public Boolean trimmed;
-
-        public Integer sourceX;
-        public Integer sourceY;
-        public Integer sourceW;
-        public Integer sourceH;
-
-        public Integer sourceSizeW;
-        public Integer sourceSizeH;
-
-    }
-
-    private static class Meta {
-
-        public String image;
-        public String format;
-
-        public Integer sizeW;
-        public Integer sizeH;
-        public Integer scale;
 
     }
 

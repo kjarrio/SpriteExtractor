@@ -4,8 +4,40 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.kjarrio.extractor</groupId>
     <artifactId>SpriteExtractor</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
     <packaging>jar</packaging>
+
+    <name>Sprite Extractor - Extract images from sprite sheets.</name>
+    <description>Library that extracts images from sprite sheets.</description>
+    <url>https://github.com/kjarrio/SpriteExtractor</url>
+
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.com:kjarrio/imgscalr.git</connection>
+        <developerConnection>scm:git:git@github.com:kjarrio/imgscalr.git</developerConnection>
+        <url>git@github.com:kjarrio/imgscalr.git</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/kjarrio/SpriteExtractor/issues</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <email>olasonk@gmail.com</email>
+            <id>kjarrio</id>
+            <name>Kjartan Olason</name>
+            <url>https://github.com/kjarrio/SpriteExtractor</url>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -56,5 +88,15 @@
             <version>4.2</version>
         </dependency>
 
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <type>jar</type>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
+
 </project>

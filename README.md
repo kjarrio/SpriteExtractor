@@ -6,6 +6,7 @@ Currently, in development, and supports:
 * JSON (Hash)
 * JSON (Array)
 * Unity® - Texture2D
+* 2D Toolkit
 
 More formats will be supported soon...
 

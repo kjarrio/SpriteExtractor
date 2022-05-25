@@ -3,6 +3,7 @@ package io.github.kjarrio.extractor;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.parsers.json.JsonArrayParser;
 import io.github.kjarrio.extractor.parsers.json.JsonHashParser;
+import io.github.kjarrio.extractor.parsers.other.AppGameKitParser;
 import io.github.kjarrio.extractor.parsers.other.Toolkit2dParser;
 import io.github.kjarrio.extractor.parsers.other.UnityTexture2dParser;
 import java.io.File;
@@ -18,6 +19,7 @@ public class SpriteExtractor {
         parsers.add(new JsonArrayParser());
         parsers.add(new UnityTexture2dParser());
         parsers.add(new Toolkit2dParser());
+        parsers.add(new AppGameKitParser());
     }
 
     public static void extract(String spriteSheetFile, String outputDir) throws Exception {

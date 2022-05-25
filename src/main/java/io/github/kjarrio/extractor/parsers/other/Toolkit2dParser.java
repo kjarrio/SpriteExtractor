@@ -13,8 +13,6 @@ import java.util.List;
 
 public class Toolkit2dParser extends AbstractParser implements SheetParser {
 
-    private final List<CommonImageFrame> textures = new ArrayList<>();
-
     @Override
     public Boolean checkType(File inputFile) {
         return inputFile.getName().toLowerCase().endsWith(".bytes");
@@ -23,8 +21,7 @@ public class Toolkit2dParser extends AbstractParser implements SheetParser {
     @Override
     public void extract(File inputFile, File outputFolder) throws Exception {
 
-        File inputImage = new File(inputFile.getParentFile(), inputFile.getName().replace(".bytes", ".png"));
-        if (!inputImage.exists()) throw new Exception("Image doesn't exists");
+        File inputImage = getImageFile(inputFile);
 
         List<CommonImageFrame> frames = new ArrayList<>();
         List<List<String>> segments = FormatUtils.splitLines(inputFile, "~");

@@ -2,10 +2,18 @@ package io.github.kjarrio.extractor.parsers;
 
 import io.github.kjarrio.extractor.utils.JsonUtils;
 import org.apache.commons.io.FileUtils;
-import java.io.File;
+import org.apache.commons.io.FilenameUtils;
+ import java.io.File;
 import java.io.IOException;
 
 public abstract class AbstractParser {
+
+    protected File getImageFile(File inputFile) throws Exception {
+        String ext = FilenameUtils.getExtension(inputFile.getName());
+        File inputImage = new File(inputFile.getParentFile(), inputFile.getName().replace("."+ext, ".png"));
+        if (!inputImage.exists()) throw new Exception("Image doesn't exists");
+        return inputImage;
+    }
 
     protected String readFile(File inputFile) throws Exception {
 

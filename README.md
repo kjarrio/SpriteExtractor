@@ -1,14 +1,15 @@
 # SpriteExtractor
 Library that extracts images from sprite sheets.
 
-Currently, in development, and supports:
+It supports these formats:
 
 * JSON (Hash)
 * JSON (Array)
 * Unity® - Texture2D
 * 2D Toolkit
+* App Game Kit
 
-More formats will be supported soon...
+*More formats will be supported soon...*
 
 **Usage:**
     

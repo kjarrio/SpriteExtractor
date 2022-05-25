@@ -1,0 +1,61 @@
+libgdx.png
+size: 446, 239
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+icon_16
+  rotate: false
+  xy: 391, 205
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+icon_32
+  rotate: false
+  xy: 357, 205
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+icon_48
+  rotate: false
+  xy: 381, 67
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: -1
+icon_64
+  rotate: false
+  xy: 381, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+icon_72
+  rotate: false
+  xy: 357, 131
+  size: 72, 72
+  orig: 72, 72
+  offset: 0, 0
+  index: -1
+icon_96
+  rotate: false
+  xy: 259, 131
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+icon_128
+  rotate: true
+  xy: 259, 1
+  size: 128, 120
+  orig: 128, 128
+  offset: 0, 1
+  index: -1
+icon_256
+  rotate: false
+  xy: 1, 1
+  size: 256, 237
+  orig: 256, 256
+  offset: 0, 4
+  index: -1

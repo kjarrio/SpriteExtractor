@@ -1,0 +1,19 @@
+{
+  "file": "egret.png",
+  "frames": { 
+    "icon_16_png": {"x":259,"y":221,"w":16,"h":16},
+    "icon_32_png": {"x":357,"y":197,"w":32,"h":32},
+    "icon_48_png": {"x":389,"y":67,"w":48,"h":48},
+    "icon_64_png": {"x":389,"y":1,"w":64,"h":64},
+    "icon_72_png": {"x":357,"y":123,"w":72,"h":72},
+    "icon_96_png": {"x":259,"y":123,"w":96,"h":96},
+    "icon_128_png": {"x":259,"y":1,"w":128,"h":120,"offX":0,"offY":7,"sourceW":128,"sourceH":128},
+    "icon_256_png": {"x":1,"y":1,"w":256,"h":237,"offX":0,"offY":15,"sourceW":256,"sourceH":256}
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "exporter": "egret",
+    "sheetsize": "454x239",
+    "smartupdate": "$TexturePacker:SmartUpdate:fd4137e83fac33cbdcab3b56f86c5bff:4d0cd494931b5c5a590c9f268c100088:f045b080f0fe9a3286931ebca7d74c83$"
+  }
+}

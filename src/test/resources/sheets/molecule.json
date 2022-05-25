@@ -1,0 +1,51 @@
+{
+    "frames": [
+        {
+            "name": "icon_16.png",
+            "position": {"x": 293, "y": 117},
+            "size": {"w": 16, "h": 16}
+        }, 
+        {
+            "name": "icon_32.png",
+            "position": {"x": 259, "y": 117},
+            "size": {"w": 32, "h": 32}
+        }, 
+        {
+            "name": "icon_48.png",
+            "position": {"x": 259, "y": 67},
+            "size": {"w": 48, "h": 48}
+        }, 
+        {
+            "name": "icon_64.png",
+            "position": {"x": 259, "y": 1},
+            "size": {"w": 64, "h": 64}
+        }, 
+        {
+            "name": "icon_72.png",
+            "position": {"x": 229, "y": 259},
+            "size": {"w": 72, "h": 72}
+        }, 
+        {
+            "name": "icon_96.png",
+            "position": {"x": 131, "y": 259},
+            "size": {"w": 96, "h": 96}
+        }, 
+        {
+            "name": "icon_128.png",
+            "position": {"x": 1, "y": 259},
+            "size": {"w": 128, "h": 128}
+        }, 
+        {
+            "name": "icon_256.png",
+            "position": {"x": 1, "y": 1},
+            "size": {"w": 256, "h": 256}
+        }],
+    "meta": {
+        "app": "https://www.codeandweb.com/texturepacker",
+        "description": "Json file for Molecule Framework",
+        "version": "1.0",
+        "image": "molecule.png",
+        "size": {"w":324,"h":388},
+        "smartupdate": "$TexturePacker:SmartUpdate:1c10baa00d32aef8a55634b8e649e2e8:4d0cd494931b5c5a590c9f268c100088:c65481f88ceef718d8e36f602389ce47$"
+    }
+}

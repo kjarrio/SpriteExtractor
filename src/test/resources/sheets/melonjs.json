@@ -1,0 +1,76 @@
+{"frames": [
+
+{
+	"filename": "icon_16",
+	"frame": {"x":259,"y":221,"w":16,"h":16},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":16,"h":16},
+	"sourceSize": {"w":16,"h":16}
+},
+{
+	"filename": "icon_32",
+	"frame": {"x":357,"y":197,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "icon_48",
+	"frame": {"x":389,"y":67,"w":48,"h":48},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":48},
+	"sourceSize": {"w":48,"h":48}
+},
+{
+	"filename": "icon_64",
+	"frame": {"x":389,"y":1,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+{
+	"filename": "icon_72",
+	"frame": {"x":357,"y":123,"w":72,"h":72},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":72,"h":72},
+	"sourceSize": {"w":72,"h":72}
+},
+{
+	"filename": "icon_96",
+	"frame": {"x":259,"y":123,"w":96,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":96},
+	"sourceSize": {"w":96,"h":96}
+},
+{
+	"filename": "icon_128",
+	"frame": {"x":259,"y":1,"w":128,"h":120},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":7,"w":128,"h":120},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "icon_256",
+	"frame": {"x":1,"y":1,"w":256,"h":237},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":15,"w":256,"h":237},
+	"sourceSize": {"w":256,"h":256}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "melonjs.png",
+	"format": "RGBA8888",
+	"size": {"w":454,"h":239},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d08e1fd13ced263a2a0bacbebaed8d24:4d0cd494931b5c5a590c9f268c100088:31a76542afa5a673c7323338b536f4cd$"
+}
+}

@@ -1,0 +1,106 @@
+{
+    "frames": { 
+        "Windows_7_zip_Icon_16": {
+            "x": 259, 
+            "y": 221,
+            "w": 16,
+            "h": 16,
+            "sx": 0,
+            "sy": 0,
+            "sw": 16,
+            "sh": 16,
+            "ax": 8,
+            "ay": 8 
+        }, 
+        "Windows_7_zip_Icon_32": {
+            "x": 357, 
+            "y": 197,
+            "w": 32,
+            "h": 32,
+            "sx": 0,
+            "sy": 0,
+            "sw": 32,
+            "sh": 32,
+            "ax": 16,
+            "ay": 16 
+        }, 
+        "Windows_7_zip_Icon_48": {
+            "x": 389, 
+            "y": 67,
+            "w": 48,
+            "h": 48,
+            "sx": 0,
+            "sy": 0,
+            "sw": 48,
+            "sh": 48,
+            "ax": 24,
+            "ay": 24 
+        }, 
+        "Windows_7_zip_Icon_64": {
+            "x": 389, 
+            "y": 1,
+            "w": 64,
+            "h": 64,
+            "sx": 0,
+            "sy": 0,
+            "sw": 64,
+            "sh": 64,
+            "ax": 32,
+            "ay": 32 
+        }, 
+        "Windows_7_zip_Icon_72": {
+            "x": 357, 
+            "y": 123,
+            "w": 72,
+            "h": 72,
+            "sx": 0,
+            "sy": 0,
+            "sw": 72,
+            "sh": 72,
+            "ax": 36,
+            "ay": 36 
+        }, 
+        "Windows_7_zip_Icon_96": {
+            "x": 259, 
+            "y": 123,
+            "w": 96,
+            "h": 96,
+            "sx": 0,
+            "sy": 0,
+            "sw": 96,
+            "sh": 96,
+            "ax": 48,
+            "ay": 48 
+        }, 
+        "Windows_7_zip_Icon_128": {
+            "x": 259, 
+            "y": 1,
+            "w": 128,
+            "h": 128,
+            "sx": 0,
+            "sy": 7,
+            "sw": 128,
+            "sh": 120,
+            "ax": 64,
+            "ay": 64 
+        }, 
+        "Windows_7_zip_Icon_256": {
+            "x": 1, 
+            "y": 1,
+            "w": 256,
+            "h": 256,
+            "sx": 0,
+            "sy": 15,
+            "sw": 256,
+            "sh": 237,
+            "ax": 128,
+            "ay": 128 
+        }
+    },
+    "meta": {
+        "app": "https://www.codeandweb.com/texturepacker",
+        "exporter": "panda",
+        "image": "panda2.png",
+        "smartupdate": "$TexturePacker:SmartUpdate:39881c89787584fa60ac97867186d9db:4d0cd494931b5c5a590c9f268c100088:2f647819988bfc2f354ebf0b3cd3fcda$"
+    }
+}

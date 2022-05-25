@@ -1,0 +1,82 @@
+
+
+.icon_16
+{
+	width: 16px; 
+	height: 16px; 
+	background-decorator: image; 
+	background-image: librocket.png 259px 221px 275px 237px;
+}
+
+
+
+.icon_32
+{
+	width: 32px; 
+	height: 32px; 
+	background-decorator: image; 
+	background-image: librocket.png 357px 197px 389px 229px;
+}
+
+
+
+.icon_48
+{
+	width: 48px; 
+	height: 48px; 
+	background-decorator: image; 
+	background-image: librocket.png 389px 67px 437px 115px;
+}
+
+
+
+.icon_64
+{
+	width: 64px; 
+	height: 64px; 
+	background-decorator: image; 
+	background-image: librocket.png 389px 1px 453px 65px;
+}
+
+
+
+.icon_72
+{
+	width: 72px; 
+	height: 72px; 
+	background-decorator: image; 
+	background-image: librocket.png 357px 123px 429px 195px;
+}
+
+
+
+.icon_96
+{
+	width: 96px; 
+	height: 96px; 
+	background-decorator: image; 
+	background-image: librocket.png 259px 123px 355px 219px;
+}
+
+
+
+.icon_128
+{
+	width: 128px; 
+	height: 120px; 
+	background-decorator: image; 
+	background-image: librocket.png 259px 1px 387px 121px;
+}
+
+
+
+.icon_256
+{
+	width: 256px; 
+	height: 237px; 
+	background-decorator: image; 
+	background-image: librocket.png 1px 1px 257px 238px;
+}
+
+
+

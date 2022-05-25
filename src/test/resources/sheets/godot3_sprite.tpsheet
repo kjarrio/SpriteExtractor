@@ -1,0 +1,138 @@
+{
+	"textures": [
+		{
+			"image": "godot3_sprite.png",
+			"size": {
+				"w": 454,
+				"h": 239
+			},
+			"sprites": [
+				{
+					"filename": "icon_256.png",
+					"region": {
+						"x": 1,
+						"y": 1,
+						"w": 256,
+						"h": 237
+					},
+					"margin": {
+						"x": 0,
+						"y": 15,
+						"w": 0,
+						"h": 19
+					}
+				},
+				{
+					"filename": "icon_128.png",
+					"region": {
+						"x": 259,
+						"y": 1,
+						"w": 128,
+						"h": 120
+					},
+					"margin": {
+						"x": 0,
+						"y": 7,
+						"w": 0,
+						"h": 8
+					}
+				},
+				{
+					"filename": "icon_64.png",
+					"region": {
+						"x": 389,
+						"y": 1,
+						"w": 64,
+						"h": 64
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "icon_96.png",
+					"region": {
+						"x": 259,
+						"y": 123,
+						"w": 96,
+						"h": 96
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "icon_16.png",
+					"region": {
+						"x": 259,
+						"y": 221,
+						"w": 16,
+						"h": 16
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "icon_48.png",
+					"region": {
+						"x": 389,
+						"y": 67,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "icon_72.png",
+					"region": {
+						"x": 357,
+						"y": 123,
+						"w": 72,
+						"h": 72
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "icon_32.png",
+					"region": {
+						"x": 357,
+						"y": 197,
+						"w": 32,
+						"h": 32
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:89003865bb8195834100a574e9addd23:4d0cd494931b5c5a590c9f268c100088:4154196ab915e72e1574620f57ef9965$"
+	}
+}

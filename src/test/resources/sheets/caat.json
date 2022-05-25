@@ -1,0 +1,56 @@
+{
+  "sprites" : { 
+    "icon_16" : {
+      "x" : 293,
+      "y" : 117,
+      "width" : 16,
+      "height" : 16
+    }, 
+    "icon_32" : {
+      "x" : 259,
+      "y" : 117,
+      "width" : 32,
+      "height" : 32
+    }, 
+    "icon_48" : {
+      "x" : 259,
+      "y" : 67,
+      "width" : 48,
+      "height" : 48
+    }, 
+    "icon_64" : {
+      "x" : 259,
+      "y" : 1,
+      "width" : 64,
+      "height" : 64
+    }, 
+    "icon_72" : {
+      "x" : 229,
+      "y" : 259,
+      "width" : 72,
+      "height" : 72
+    }, 
+    "icon_96" : {
+      "x" : 131,
+      "y" : 259,
+      "width" : 96,
+      "height" : 96
+    }, 
+    "icon_128" : {
+      "x" : 1,
+      "y" : 259,
+      "width" : 128,
+      "height" : 128
+    }, 
+    "icon_256" : {
+      "x" : 1,
+      "y" : 1,
+      "width" : 256,
+      "height" : 256
+    }
+  },
+  "texturepacker": [
+    "SmartUpdateHash: $TexturePacker:SmartUpdate:a715cd44d4f66661748e15b689aeff33:4d0cd494931b5c5a590c9f268c100088:a024a6c1410ab9fe22d1c68af6c7ca01$",
+    "Created with TexturePacker (http://www.texturepacker.com) for CAAT"
+  ]
+}

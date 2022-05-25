@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker https://www.codeandweb.com/texturepacker -->
+<!-- $TexturePacker:SmartUpdate:39b1f547134eaf852e98d9c81e795c9d:4d0cd494931b5c5a590c9f268c100088:5bc2e71a7307f5abbb5c961446553a6c$ -->
+<Imageset Name="cegui_ogre" Imagefile="cegui_ogre.png" NativeHorzRes="324" NativeVertRes="388" AutoScaled="false">
+    <Image Name="icon_16" XPos="293" YPos="117" Width="16" Height="16"/>
+    <Image Name="icon_32" XPos="259" YPos="117" Width="32" Height="32"/>
+    <Image Name="icon_48" XPos="259" YPos="67" Width="48" Height="48"/>
+    <Image Name="icon_64" XPos="259" YPos="1" Width="64" Height="64"/>
+    <Image Name="icon_72" XPos="229" YPos="259" Width="72" Height="72"/>
+    <Image Name="icon_96" XPos="131" YPos="259" Width="96" Height="96"/>
+    <Image Name="icon_128" XPos="1" YPos="259" Width="128" Height="128"/>
+    <Image Name="icon_256" XPos="1" YPos="1" Width="256" Height="256"/>
+</Imageset>

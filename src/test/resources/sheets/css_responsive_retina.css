@@ -1,0 +1,35 @@
+/*
+-------------------------------------------------------------------
+Created with TexturePacker https://www.codeandweb.com/texturepacker
+-------------------------------------------------------------------
+Inline:     <i class="yourspritesname"></i>
+Responsive: <div class="yourspritesname"></div>
+*/
+
+
+.icon_128 {max-width:128px; max-height:128px; }
+.icon_128::after {content: '\00a0';display: inline-block; width:128px; height:128px; background-position: 0.5128205128205128% 99.61389961389962%;background-size: 252.34375% 302.34375%;background-image: url(css_responsive_retina.png);padding: 0; }
+div.icon_128::after {max-width:128px; width:100%;height:0;padding: 0 0 100% 0;}
+.icon_16 {max-width:16px; max-height:16px; }
+.icon_16::after {content: '\00a0';display: inline-block; width:16px; height:16px; background-position: 94.78827361563518% 30.997304582210244%;background-size: 2018.75% 2418.75%;background-image: url(css_responsive_retina.png);padding: 0; }
+div.icon_16::after {max-width:16px; width:100%;height:0;padding: 0 0 100% 0;}
+.icon_256 {max-width:256px; max-height:256px; }
+.icon_256::after {content: '\00a0';display: inline-block; width:256px; height:256px; background-position: 1.492537313432836% 0.7633587786259542%;background-size: 126.171875% 151.171875%;background-image: url(css_responsive_retina.png);padding: 0; }
+div.icon_256::after {max-width:256px; width:100%;height:0;padding: 0 0 100% 0;}
+.icon_32 {max-width:32px; max-height:32px; }
+.icon_32::after {content: '\00a0';display: inline-block; width:32px; height:32px; background-position: 88.65979381443299% 32.394366197183096%;background-size: 1009.375% 1209.375%;background-image: url(css_responsive_retina.png);padding: 0; }
+div.icon_32::after {max-width:32px; width:100%;height:0;padding: 0 0 100% 0;}
+.icon_48 {max-width:48px; max-height:48px; }
+.icon_48::after {content: '\00a0';display: inline-block; width:48px; height:48px; background-position: 93.81818181818181% 19.469026548672566%;background-size: 672.9166666666666% 806.25%;background-image: url(css_responsive_retina.png);padding: 0; }
+div.icon_48::after {max-width:48px; width:100%;height:0;padding: 0 0 100% 0;}
+.icon_64 {max-width:64px; max-height:64px; }
+.icon_64::after {content: '\00a0';display: inline-block; width:64px; height:64px; background-position: 99.61389961389962% 0.30959752321981426%;background-size: 504.6875% 604.6875%;background-image: url(css_responsive_retina.png);padding: 0; }
+div.icon_64::after {max-width:64px; width:100%;height:0;padding: 0 0 100% 0;}
+.icon_72 {max-width:72px; max-height:72px; }
+.icon_72::after {content: '\00a0';display: inline-block; width:72px; height:72px; background-position: 90.43824701195219% 81.9047619047619%;background-size: 448.6111111111111% 537.5%;background-image: url(css_responsive_retina.png);padding: 0; }
+div.icon_72::after {max-width:72px; width:100%;height:0;padding: 0 0 100% 0;}
+.icon_96 {max-width:96px; max-height:96px; }
+.icon_96::after {content: '\00a0';display: inline-block; width:96px; height:96px; background-position: 57.268722466960355% 88.65979381443299%;background-size: 336.4583333333333% 403.125%;background-image: url(css_responsive_retina.png);padding: 0; }
+div.icon_96::after {max-width:96px; width:100%;height:0;padding: 0 0 100% 0;}
+
+/* $TexturePacker:SmartUpdate:437db47b403a0adb7e8cc3f8e48cbba9:4d0cd494931b5c5a590c9f268c100088:9670e54c388b66ba01f064b9b9dcf086$ */

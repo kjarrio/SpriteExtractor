@@ -4,12 +4,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import io.github.kjarrio.extractor.parsers.json.objects.ImageFrame;
+import io.github.kjarrio.extractor.objects.ImageFrame;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.utils.JsonUtils;
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 public class JsonArrayParser extends JsonHashParser implements SheetParser {
 
@@ -46,11 +46,11 @@ public class JsonArrayParser extends JsonHashParser implements SheetParser {
 
     }
 
-    protected Map<String, ImageFrame> parseFrames(JsonObject json) {
+    protected List<ImageFrame> parseFrames(JsonObject json) {
 
         JsonArray frames = json.getAsJsonArray("frames");
 
-        Map<String, ImageFrame> imageFrames = new HashMap<>();
+        List<ImageFrame> imageFrames = new ArrayList<>();
 
         for (JsonElement element : frames) {
 
@@ -62,20 +62,18 @@ public class JsonArrayParser extends JsonHashParser implements SheetParser {
             ImageFrame imageFrame = new ImageFrame();
 
             imageFrame.name = imageObject.get("filename").getAsString();
-            imageFrame.frameX = frameObject.get("x").getAsInt();
-            imageFrame.frameY = frameObject.get("y").getAsInt();
-            imageFrame.frameW = frameObject.get("w").getAsInt();
-            imageFrame.frameH = frameObject.get("h").getAsInt();
+            imageFrame.rectX = frameObject.get("x").getAsInt();
+            imageFrame.rectY = frameObject.get("y").getAsInt();
+            imageFrame.rectW = frameObject.get("w").getAsInt();
+            imageFrame.rectH = frameObject.get("h").getAsInt();
             imageFrame.rotated = imageObject.get("rotated").getAsBoolean();
             imageFrame.trimmed = imageObject.get("trimmed").getAsBoolean();
-            imageFrame.sourceX = spriteSourceSizeObject.get("x").getAsInt();
-            imageFrame.sourceY = spriteSourceSizeObject.get("y").getAsInt();
-            imageFrame.sourceW = spriteSourceSizeObject.get("w").getAsInt();
-            imageFrame.sourceH = spriteSourceSizeObject.get("h").getAsInt();
-            imageFrame.sourceSizeW = sourceSizeObject.get("w").getAsInt();
-            imageFrame.sourceSizeH = sourceSizeObject.get("h").getAsInt();
+            imageFrame.offsetX = spriteSourceSizeObject.get("x").getAsInt();
+            imageFrame.offsetY = spriteSourceSizeObject.get("y").getAsInt();
+            imageFrame.width = sourceSizeObject.get("w").getAsInt();
+            imageFrame.height = sourceSizeObject.get("h").getAsInt();
 
-            imageFrames.put(imageFrame.name, imageFrame);
+            imageFrames.add(imageFrame);
 
         }
 

@@ -1,6 +1,6 @@
 package io.github.kjarrio.extractor.objects;
 
-public class CommonImageFrame {
+public class ImageFrame {
 
     public String name;
 

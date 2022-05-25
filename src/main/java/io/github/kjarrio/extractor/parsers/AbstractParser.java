@@ -1,10 +1,15 @@
 package io.github.kjarrio.extractor.parsers;
 
+import io.github.kjarrio.extractor.objects.ImageFrame;
+import io.github.kjarrio.extractor.utils.ImageUtils;
 import io.github.kjarrio.extractor.utils.JsonUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
- import java.io.File;
+import org.imgscalr.Scalr;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public abstract class AbstractParser {
 
@@ -36,6 +41,34 @@ public abstract class AbstractParser {
         }
 
         return contents;
+
+    }
+
+    protected void extractImages(File inputImage, File outputFolder, List<ImageFrame> frames) throws Exception {
+
+        BufferedImage inputImg = ImageUtils.read(inputImage);
+
+        if (!outputFolder.exists()) outputFolder.mkdir();
+
+        frames.forEach(frame -> {
+            try {
+
+                BufferedImage spriteImg = ImageUtils.rectangle(inputImg, frame.rectX, frame.rectY, frame.rectW, frame.rectH);
+
+                // Rotate
+                if (frame.rotated)
+                    spriteImg = ImageUtils.rotate(spriteImg, Scalr.Rotation.CW_270);
+
+                // Trimmed
+                if (frame.trimmed)
+                    spriteImg = ImageUtils.expand(spriteImg, frame.width, frame.height, frame.offsetX, frame.offsetY);
+
+                ImageUtils.save(spriteImg, new File(outputFolder, frame.name + ".png"));
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
 
     }
 

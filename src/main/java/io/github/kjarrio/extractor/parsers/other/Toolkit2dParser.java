@@ -1,12 +1,9 @@
 package io.github.kjarrio.extractor.parsers.other;
 
-import io.github.kjarrio.extractor.objects.CommonImageFrame;
+import io.github.kjarrio.extractor.objects.ImageFrame;
 import io.github.kjarrio.extractor.parsers.AbstractParser;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.utils.FormatUtils;
-import io.github.kjarrio.extractor.utils.ImageUtils;
-import org.imgscalr.Scalr;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +20,7 @@ public class Toolkit2dParser extends AbstractParser implements SheetParser {
 
         File inputImage = getImageFile(inputFile);
 
-        List<CommonImageFrame> frames = new ArrayList<>();
+        List<ImageFrame> frames = new ArrayList<>();
         List<List<String>> segments = FormatUtils.splitLines(inputFile, "~");
 
         for (int i = 1; i < segments.size(); i++) {
@@ -53,7 +50,7 @@ public class Toolkit2dParser extends AbstractParser implements SheetParser {
 
             String[] sizes = size.split(" ");
 
-            CommonImageFrame frame = new CommonImageFrame();
+            ImageFrame frame = new ImageFrame();
             frame.name = name;
             frame.rectX = Integer.valueOf(sizes[0]);
             frame.rectY = Integer.valueOf(sizes[1]);
@@ -86,29 +83,7 @@ public class Toolkit2dParser extends AbstractParser implements SheetParser {
 
         }
 
-        BufferedImage inputImg = ImageUtils.read(inputImage);
-
-        if (!outputFolder.exists()) outputFolder.mkdir();
-
-        frames.forEach(frame -> {
-            try {
-
-                BufferedImage spriteImg = ImageUtils.rectangle(inputImg, frame.rectX, frame.rectY, frame.rectW, frame.rectH);
-
-                // Rotate
-                if (frame.rotated)
-                    spriteImg = ImageUtils.rotate(spriteImg, Scalr.Rotation.CW_270);
-
-                // Trimmed
-                if (frame.trimmed)
-                    spriteImg = ImageUtils.expand(spriteImg, frame.width, frame.height, frame.offsetX, frame.offsetY);
-
-                ImageUtils.save(spriteImg, new File(outputFolder, frame.name + ".png"));
-
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        });
+        extractImages(inputImage, outputFolder, frames);
 
     }
 

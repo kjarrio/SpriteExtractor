@@ -61,7 +61,7 @@ public class JsonHashParser extends AbstractParser implements SheetParser {
         // Read the input image
         File inputImage = new File(inputFile.getParentFile(), metaData.image);
 
-        // Exctract
+        // Extract
         extractImages(inputImage, outputFolder, frames);
 
     }

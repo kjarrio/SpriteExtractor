@@ -9,7 +9,45 @@ import java.util.List;
 
 public class FormatUtils {
 
-    public static List<List<String>> splitLines(File file, String sep) {
+    public static List<String> readAndClean(File inputFile, String comment) {
+        List<String> lines;
+        try {
+            lines = FileUtils.readLines(inputFile, "UTF-8");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return removeEmptyLines(removeComments(lines, comment));
+    }
+
+    public static List<String> removeEmptyLines(List<String> lines) {
+
+        List<String> noEmptyLines = new ArrayList<>();
+
+        for (String line : lines) {
+            if (line.trim().length() != 0) {
+                noEmptyLines.add(line);
+            }
+        }
+
+        return noEmptyLines;
+
+    }
+
+    public static List<String> removeComments(List<String> lines, String comment) {
+
+        List<String> noComments = new ArrayList<>();
+
+        for (String line : lines) {
+            if (!line.trim().startsWith(comment)) {
+                noComments.add(line);
+            }
+        }
+
+        return noComments;
+
+    }
+
+    public static List<List<String>> splitSegments(File file, String sep) {
 
         List<List<String>> output = new ArrayList<>();
         List<String> lines;

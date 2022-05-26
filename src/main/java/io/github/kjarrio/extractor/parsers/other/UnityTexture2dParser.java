@@ -1,10 +1,9 @@
 package io.github.kjarrio.extractor.parsers.other;
 
+import io.github.kjarrio.extractor.objects.ImageFrame;
 import io.github.kjarrio.extractor.parsers.AbstractParser;
 import io.github.kjarrio.extractor.parsers.SheetParser;
-import io.github.kjarrio.extractor.utils.ImageUtils;
-import org.apache.commons.io.FileUtils;
-import java.awt.image.BufferedImage;
+import io.github.kjarrio.extractor.utils.FormatUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,51 +17,40 @@ public class UnityTexture2dParser extends AbstractParser implements SheetParser 
 
     private File inputFile;
     private File inputImage;
-    private final List<UnityTexture> textures = new ArrayList<>();
 
     @Override
     public void extract(File inputFile, File outputFolder) throws Exception {
 
         this.inputFile = inputFile;
 
-        FileUtils.readLines(inputFile, "UTF-8").forEach(line -> {
+        List<String> lines = FormatUtils.readAndClean(inputFile, "#");
 
-            if (line.startsWith("#") || line.isEmpty()) return;
+        final List<ImageFrame> frames = new ArrayList<>();
+
+        lines.forEach(line -> {
 
             if (line.startsWith(":")) {
                 parseMetaLine(line);
             } else {
-                parseImageLine(line);
+                frames.add(parseImageLine(line));
             }
 
         });
 
-        textures.forEach(texture -> {
-            try {
-                BufferedImage inputImg = ImageUtils.read(inputImage);
-                BufferedImage spriteImg = ImageUtils.rectangle(inputImg, texture.x, texture.y, texture.width, texture.height);
-                File outputFile = new File(outputFolder, texture.name + ".png");
-                ImageUtils.save(spriteImg, outputFile);
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        });
+        // Extract
+        extractImages(inputImage, outputFolder, frames);
 
     }
 
-    private void parseImageLine(String line) {
-
+    private ImageFrame parseImageLine(String line) {
         String[] parts = line.split(";");
-
-        UnityTexture texture = new UnityTexture();
-        texture.name = parts[0];
-        texture.x = Integer.valueOf(parts[1]);
-        texture.y = Integer.valueOf(parts[2]);
-        texture.width = Integer.valueOf(parts[3]);
-        texture.height = Integer.valueOf(parts[4]);
-
-        textures.add(texture);
-
+        ImageFrame frame = new ImageFrame();
+        frame.name = parts[0];
+        frame.rectX = Integer.valueOf(parts[1]);
+        frame.rectY = Integer.valueOf(parts[2]);
+        frame.rectW = Integer.valueOf(parts[3]);
+        frame.rectH = Integer.valueOf(parts[4]);
+        return frame;
     }
 
     private void parseMetaLine(String line) {
@@ -74,20 +62,8 @@ public class UnityTexture2dParser extends AbstractParser implements SheetParser 
         String key = parts[0];
         String value = parts[1];
 
-        switch (key) {
-            case "texture":
-                inputImage = new File(inputFile.getParentFile(), value);
-                break;
-        }
+        if (key.equals("texture")) inputImage = new File(inputFile.getParentFile(), value);
 
-    }
-
-    private static class UnityTexture {
-        public String name;
-        public Integer x;
-        public Integer y;
-        public Integer width;
-        public Integer height;
     }
 
 }

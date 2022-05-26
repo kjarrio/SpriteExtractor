@@ -21,7 +21,7 @@ public class Toolkit2dParser extends AbstractParser implements SheetParser {
         File inputImage = getImageFile(inputFile);
 
         List<ImageFrame> frames = new ArrayList<>();
-        List<List<String>> segments = FormatUtils.splitLines(inputFile, "~");
+        List<List<String>> segments = FormatUtils.splitSegments(inputFile, "~");
 
         for (int i = 1; i < segments.size(); i++) {
 

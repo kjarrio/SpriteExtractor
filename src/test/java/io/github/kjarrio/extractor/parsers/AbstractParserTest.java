@@ -41,8 +41,9 @@ public abstract class AbstractParserTest {
 
         try {
             parser.extract(getSheet(), outputFolder);
-            assertNotNull(outputFolder.listFiles());
-            assertEquals(outputFolder.listFiles().length, 8);
+            File[] files = outputFolder.listFiles();
+            assertNotNull(files);
+            assertEquals(files.length, 8);
         } catch (Exception e) {
             assertEquals(0, 1, "Exception: " + e.getMessage());
         }

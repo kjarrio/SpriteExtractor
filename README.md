@@ -3,11 +3,12 @@ Library that extracts images from sprite sheets.
 
 It supports these formats:
 
+* 2D Toolkit
+* Amethyst
+* App Game Kit
 * JSON (Hash)
 * JSON (Array)
 * Unity® - Texture2D
-* 2D Toolkit
-* App Game Kit
 
 *More formats will be supported soon...*
 

@@ -8,7 +8,7 @@ import java.io.File;
 public class JsonUtils {
 
     public static Boolean isJsonFile(File jsonFile) {
-        return jsonFile.getName().toLowerCase().endsWith(".json");
+        return FormatUtils.hasExtension(jsonFile, "json");
     }
 
     public static Boolean isValidJson(String contents) {

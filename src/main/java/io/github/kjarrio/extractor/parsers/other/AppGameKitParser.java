@@ -3,6 +3,7 @@ package io.github.kjarrio.extractor.parsers.other;
 import io.github.kjarrio.extractor.objects.ImageFrame;
 import io.github.kjarrio.extractor.parsers.AbstractParser;
 import io.github.kjarrio.extractor.parsers.SheetParser;
+import io.github.kjarrio.extractor.utils.FormatUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import java.io.File;
@@ -14,7 +15,7 @@ public class AppGameKitParser extends AbstractParser implements SheetParser {
 
     @Override
     public Boolean checkType(File inputFile) {
-        return inputFile.getName().toLowerCase().endsWith(".txt");
+        return FormatUtils.hasExtension(inputFile, "txt");
     }
 
     @Override

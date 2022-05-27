@@ -63,7 +63,9 @@ public abstract class AbstractParser {
                 if (frame.trimmed)
                     spriteImg = ImageUtils.expand(spriteImg, frame.width, frame.height, frame.offsetX, frame.offsetY);
 
-                ImageUtils.save(spriteImg, new File(outputFolder, frame.name + ".png"));
+                String fileName = FilenameUtils.removeExtension(frame.name + ".png");
+
+                ImageUtils.save(spriteImg, new File(outputFolder, fileName));
 
             } catch (Exception e) {
                 throw new RuntimeException(e);

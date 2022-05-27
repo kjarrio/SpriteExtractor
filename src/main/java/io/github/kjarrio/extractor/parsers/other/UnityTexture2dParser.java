@@ -12,7 +12,8 @@ public class UnityTexture2dParser extends AbstractParser implements SheetParser 
 
     @Override
     public Boolean checkType(File inputFile) {
-        return inputFile.getName().toLowerCase().endsWith(".tpsheet");
+        if (!FormatUtils.hasExtension(inputFile, "tpsheet")) return false;
+        return !FormatUtils.hasString(inputFile, "{");
     }
 
     private File inputFile;

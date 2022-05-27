@@ -12,7 +12,7 @@ public class Toolkit2dParser extends AbstractParser implements SheetParser {
 
     @Override
     public Boolean checkType(File inputFile) {
-        return inputFile.getName().toLowerCase().endsWith(".bytes");
+        return FormatUtils.hasExtension(inputFile, "bytes");
     }
 
     @Override

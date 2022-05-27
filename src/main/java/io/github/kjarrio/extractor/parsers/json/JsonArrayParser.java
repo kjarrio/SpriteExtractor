@@ -16,9 +16,7 @@ public class JsonArrayParser extends JsonHashParser implements SheetParser {
     @Override
     public Boolean checkType(File inputFile) {
 
-        if (!JsonUtils.isJsonFile(inputFile)) {
-            return false;
-        }
+        if (!JsonUtils.isJsonFile(inputFile)) return false;
 
         try {
 

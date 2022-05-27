@@ -9,6 +9,26 @@ import java.util.List;
 
 public class FormatUtils {
 
+    public static String subAfter(String s, String sub) {
+        return s.substring(s.indexOf(sub) + sub.length()).trim();
+    }
+
+    public static Boolean hasString(File inputFile, String s) {
+        try {
+            return FileUtils.readFileToString(inputFile, Charset.defaultCharset()).contains(s);
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    public static Boolean hasExtension(File inputFile, String ext) {
+        return inputFile.getName().toLowerCase().endsWith("." + ext);
+    }
+
+    public static List<String> readAndClean(File inputFile) {
+        return readAndClean(inputFile, "");
+    }
+
     public static List<String> readAndClean(File inputFile, String comment) {
         List<String> lines;
         try {
@@ -35,6 +55,8 @@ public class FormatUtils {
 
     public static List<String> removeComments(List<String> lines, String comment) {
 
+        if (comment.isEmpty()) return lines;
+
         List<String> noComments = new ArrayList<>();
 
         for (String line : lines) {
@@ -58,6 +80,13 @@ public class FormatUtils {
             return output;
         }
 
+        return splitSegments(lines, sep);
+
+    }
+
+    public static List<List<String>> splitSegments(List<String> lines, String sep) {
+
+        List<List<String>> output = new ArrayList<>();
         List<String> currentSegment = new ArrayList<>();
 
         for (String line : lines) {

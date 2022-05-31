@@ -16,15 +16,9 @@ public class JsonArrayParser extends JsonHashParser implements SheetParser {
     @Override
     public Boolean checkType(File inputFile) {
 
-        if (!JsonUtils.isJsonFile(inputFile)) return false;
-
         try {
 
             String contents = readFile(inputFile);
-
-            if (!JsonUtils.isValidJson(contents)) {
-                return false;
-            }
 
             JsonObject json = JsonParser.parseString(contents).getAsJsonObject();
 

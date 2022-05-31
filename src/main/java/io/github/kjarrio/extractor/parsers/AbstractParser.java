@@ -1,6 +1,8 @@
 package io.github.kjarrio.extractor.parsers;
 
 import io.github.kjarrio.extractor.objects.ImageFrame;
+import io.github.kjarrio.extractor.objects.ImageFramesPair;
+import io.github.kjarrio.extractor.utils.FormatUtils;
 import io.github.kjarrio.extractor.utils.ImageUtils;
 import io.github.kjarrio.extractor.utils.JsonUtils;
 import org.apache.commons.io.FileUtils;
@@ -11,7 +13,22 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public abstract class AbstractParser {
+public abstract class AbstractParser implements SheetParser {
+
+    protected String EXTENSION;
+
+    public Boolean checkType(File inputFile) {
+        return FormatUtils.hasExtension(inputFile, EXTENSION);
+    }
+
+    protected abstract ImageFramesPair parse(File inputFile, File outputFolder) throws Exception;
+
+    @Override
+    public void extract(File inputFile, File outputFolder) throws Exception {
+        ImageFramesPair parsed = parse(inputFile, outputFolder);
+        extractImages(parsed.getImage(), outputFolder, parsed.getFrames());
+    }
+
 
     protected File getImageFile(File inputFile) throws Exception {
         String ext = FilenameUtils.getExtension(inputFile.getName());

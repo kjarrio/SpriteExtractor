@@ -1,31 +1,28 @@
 package io.github.kjarrio.extractor.utils;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParser;
+import org.apache.commons.io.FileUtils;
 import java.io.File;
+import java.io.IOException;
 
 public class JsonUtils {
 
     public static Boolean isJsonFile(File jsonFile) {
-        return FormatUtils.hasExtension(jsonFile, "json");
+        try {
+            return FormatUtils.hasExtension(jsonFile, "json") && isValidJson(FileUtils.readFileToString(jsonFile, "UTF-8"));
+        } catch (IOException e) {
+            return false;
+        }
     }
 
     public static Boolean isValidJson(String contents) {
 
-        if (contents.isEmpty()) {
+        if (contents.isEmpty() || !contents.contains("{") && !contents.contains("[")) {
             return false;
         }
-
-        if (!contents.contains("{") && !contents.contains("[")) {
-            return false;
-        }
-
-        JsonParser parser = new JsonParser();
-        Gson gson = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
         try {
-            parser.parse(gson.toJson(parser.parse(contents)));
+            JsonParser.parseString(contents);
         } catch (Exception e) {
             return false;
         }

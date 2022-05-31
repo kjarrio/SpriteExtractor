@@ -1,6 +1,7 @@
 package io.github.kjarrio.extractor.parsers.other;
 
 import io.github.kjarrio.extractor.objects.ImageFrame;
+import io.github.kjarrio.extractor.objects.ImageFramesPair;
 import io.github.kjarrio.extractor.parsers.AbstractParser;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.utils.FormatUtils;
@@ -10,9 +11,11 @@ import java.util.List;
 
 public class UnityTexture2dParser extends AbstractParser implements SheetParser {
 
+    { this.EXTENSION = "tpsheet"; }
+
     @Override
     public Boolean checkType(File inputFile) {
-        if (!FormatUtils.hasExtension(inputFile, "tpsheet")) return false;
+        if (!super.checkType(inputFile)) return false;
         return !FormatUtils.hasString(inputFile, "{");
     }
 
@@ -20,7 +23,7 @@ public class UnityTexture2dParser extends AbstractParser implements SheetParser 
     private File inputImage;
 
     @Override
-    public void extract(File inputFile, File outputFolder) throws Exception {
+    protected ImageFramesPair parse(File inputFile, File outputFolder) throws Exception {
 
         this.inputFile = inputFile;
 
@@ -38,8 +41,7 @@ public class UnityTexture2dParser extends AbstractParser implements SheetParser 
 
         });
 
-        // Extract
-        extractImages(inputImage, outputFolder, frames);
+        return new ImageFramesPair(inputImage, frames);
 
     }
 

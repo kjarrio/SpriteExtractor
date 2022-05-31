@@ -21,6 +21,24 @@ public class FormatUtils {
         }
     }
 
+    public static Boolean checkStrings(File inputFile, String contains, String... notContains) {
+        try {
+
+            String contents = FileUtils.readFileToString(inputFile, Charset.defaultCharset());
+
+            if (!contents.contains(contains)) return false;
+
+            for (String notContain : notContains)
+                if (contents.contains(notContain)) return false;
+
+        } catch (IOException e) {
+            return false;
+        }
+
+        return true;
+
+    }
+
     public static Boolean hasExtension(File inputFile, String ext) {
         return inputFile.getName().toLowerCase().endsWith("." + ext);
     }

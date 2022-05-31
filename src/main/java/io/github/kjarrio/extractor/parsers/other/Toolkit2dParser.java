@@ -1,6 +1,7 @@
 package io.github.kjarrio.extractor.parsers.other;
 
 import io.github.kjarrio.extractor.objects.ImageFrame;
+import io.github.kjarrio.extractor.objects.ImageFramesPair;
 import io.github.kjarrio.extractor.parsers.AbstractParser;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.utils.FormatUtils;
@@ -10,13 +11,10 @@ import java.util.List;
 
 public class Toolkit2dParser extends AbstractParser implements SheetParser {
 
-    @Override
-    public Boolean checkType(File inputFile) {
-        return FormatUtils.hasExtension(inputFile, "bytes");
-    }
+    { this.EXTENSION = "bytes"; }
 
     @Override
-    public void extract(File inputFile, File outputFolder) throws Exception {
+    protected ImageFramesPair parse(File inputFile, File outputFolder) throws Exception {
 
         File inputImage = getImageFile(inputFile);
 
@@ -83,7 +81,7 @@ public class Toolkit2dParser extends AbstractParser implements SheetParser {
 
         }
 
-        extractImages(inputImage, outputFolder, frames);
+        return new ImageFramesPair(inputImage, frames);
 
     }
 

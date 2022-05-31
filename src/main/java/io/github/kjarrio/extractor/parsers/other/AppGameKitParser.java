@@ -1,11 +1,14 @@
 package io.github.kjarrio.extractor.parsers.other;
 
 import io.github.kjarrio.extractor.objects.ImageFrame;
+import io.github.kjarrio.extractor.objects.ImageFramesPair;
 import io.github.kjarrio.extractor.parsers.AbstractParser;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.utils.FormatUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+
+import java.beans.Transient;
 import java.io.File;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -13,13 +16,16 @@ import java.util.List;
 
 public class AppGameKitParser extends AbstractParser implements SheetParser {
 
+    { this.EXTENSION = "txt"; }
+
     @Override
     public Boolean checkType(File inputFile) {
-        return FormatUtils.hasExtension(inputFile, "txt");
+        return super.checkType(inputFile) &&
+                FormatUtils.checkStrings(inputFile, ":", "size", ";");
     }
 
     @Override
-    public void extract(File inputFile, File outputFolder) throws Exception {
+    protected ImageFramesPair parse(File inputFile, File outputFolder) throws Exception {
 
         File inputImage = getImageFile(inputFile);
 
@@ -38,7 +44,7 @@ public class AppGameKitParser extends AbstractParser implements SheetParser {
             frames.add(frame);
         }
 
-        extractImages(inputImage, outputFolder, frames);
+        return new ImageFramesPair(inputImage, frames);
 
     }
 

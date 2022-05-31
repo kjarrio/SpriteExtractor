@@ -3,10 +3,8 @@ package io.github.kjarrio.extractor;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.parsers.json.JsonArrayParser;
 import io.github.kjarrio.extractor.parsers.json.JsonHashParser;
-import io.github.kjarrio.extractor.parsers.other.AmethystParser;
-import io.github.kjarrio.extractor.parsers.other.AppGameKitParser;
-import io.github.kjarrio.extractor.parsers.other.Toolkit2dParser;
-import io.github.kjarrio.extractor.parsers.other.UnityTexture2dParser;
+import io.github.kjarrio.extractor.parsers.other.*;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import io.github.kjarrio.extractor.objects.ImageFrame;
 import io.github.kjarrio.extractor.objects.ImageData;
+import io.github.kjarrio.extractor.objects.ImageFramesPair;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.parsers.AbstractParser;
 import io.github.kjarrio.extractor.utils.JsonUtils;
@@ -11,6 +12,8 @@ import java.io.File;
 import java.util.*;
 
 public class JsonHashParser extends AbstractParser implements SheetParser {
+
+    { this.EXTENSION = "json"; }
 
     @Override
     public Boolean checkType(File inputFile) {
@@ -20,10 +23,6 @@ public class JsonHashParser extends AbstractParser implements SheetParser {
         try {
 
             String contents = readFile(inputFile);
-
-            if (!JsonUtils.isValidJson(contents)) {
-                return false;
-            }
 
             JsonObject json = JsonParser.parseString(contents).getAsJsonObject();
 
@@ -44,7 +43,7 @@ public class JsonHashParser extends AbstractParser implements SheetParser {
     }
 
     @Override
-    public void extract(File inputFile, File outputFolder) throws Exception {
+    protected ImageFramesPair parse(File inputFile, File outputFolder) throws Exception {
 
         String contents = readFile(inputFile);
 
@@ -59,8 +58,7 @@ public class JsonHashParser extends AbstractParser implements SheetParser {
         // Read the input image
         File inputImage = new File(inputFile.getParentFile(), metaData.image);
 
-        // Extract
-        extractImages(inputImage, outputFolder, frames);
+        return new ImageFramesPair(inputImage, frames);
 
     }
 

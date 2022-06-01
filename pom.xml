@@ -2,9 +2,10 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.github.kjarrio.extractor</groupId>
+    <groupId>com.github.kjarrio</groupId>
     <artifactId>SpriteExtractor</artifactId>
-    <version>0.3</version>
+
+    <version>0.4</version>
     <packaging>jar</packaging>
 
     <name>Sprite Extractor - Extract images from sprite sheets.</name>
@@ -14,15 +15,14 @@
     <licenses>
         <license>
             <name>MIT</name>
-            <url>https://opensource.org/licenses/MIT</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:kjarrio/imgscalr.git</connection>
-        <developerConnection>scm:git:git@github.com:kjarrio/imgscalr.git</developerConnection>
-        <url>git@github.com:kjarrio/imgscalr.git</url>
+        <connection>scm:git:git@github.com:kjarrio/SpriteExtractor.git</connection>
+        <developerConnection>scm:git:git@github.com:kjarrio/SpriteExtractor.git</developerConnection>
+        <url>git@github.com:kjarrio/SpriteExtractor.git</url>
     </scm>
 
     <issueManagement>
@@ -52,6 +52,20 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

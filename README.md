@@ -1,7 +1,8 @@
-# SpriteExtractor
-Java Library that extracts images from sprite sheets.
+# Sprite Extractor
 
-It supports these formats:
+Sprite Extractor is a Java Library that exports images from multiple formats of sprite sheets.
+
+It currently supports these formats:
 
 * 2D Toolkit
 * Amethyst
@@ -13,12 +14,23 @@ It supports these formats:
 * MelonJS
 * Unity® - Texture2D
 
-*More formats will be supported soon... Please see the Roadmap below for further details*
+**It will detect the format automatically and extract to a given output folder.**
 
-**Usage:**
-    
+## Installation
+
+Using Maven:
+
+```xml
+<dependency>
+    <groupId>io.github.kjarrio</groupId>
+    <artifactId>SpriteExtractor</artifactId>
+    <version>1.1</version>
+</dependency>
+```
+
+## Usage
+
 ```java
-import java.io.File;
 import io.github.kjarrio.extractor.SpriteExtractor;
 
 File spriteSheet = new File("spritesheet.json");
@@ -26,21 +38,21 @@ File outputDir = new File("/output/dir");
 
 SpriteExtractor.extract(spriteSheet, outputDir);
 ```
+## Roadmap
 
-Roadmap for supporting more formats:
+* Support multiple output image formats, it currently only support PNG.
+
+**The goal is to support as many formats as possible, such as:**
 
 * BatteryTech SDK **(Work in Progress)**
 * Blacksmith 2D
 * CEGUI / OGRE
-* cocos2d
-* cocos2d-x
-* CSS (responsive / retina)
-* CSS (simple)
+* cocos2d and cocos2d-x
+* CSS Simple & (Responsive/Retina)
 * EaselJS / CreateJS
 * Egret Engine
 * Gideros
-* Godot 3 SpriteSheet
-* Godot 3 TileSet
+* Godot 3 SpriteSheet and TileSet
 * Kivy
 * Kwik (image sheet)
 * LayaAir 2.0
@@ -53,8 +65,7 @@ Roadmap for supporting more formats:
 * MonoGame
 * Orx
 * Panda 2
-* Phaser (JSONArray)
-* Phaser (JSONHash)
+* Phaser (JSONArray / JSONHash)
 * Phaser 3
 * PixiJS
 * PopcornFX
@@ -70,8 +81,7 @@ Roadmap for supporting more formats:
 * SpriteStudio
 * TreSensa
 * UIKit (Plist)
-* Unity® - JSON data (.txt)
-* Unity® - Texture2D
+* Unity® - JSON data (txt)
 * UnrealEngine - Paper2d
 * V-Play
 * WaveEngine (xml)
@@ -79,4 +89,13 @@ Roadmap for supporting more formats:
 * XAML Resource Dictionary (NoesisGUI)
 * XML (generic)
 
-License: MIT
+**Future goals also include converting between different types of formats.**
+
+## Contributing
+Pull requests are welcome and please make sure to update tests as appropriate.
+
+## Authors
+[Kjartan Olason (kjarrio)](https://github.com/kjarrio)
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)

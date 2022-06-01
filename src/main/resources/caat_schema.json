@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "spriteDefinition": {
+      "type": "object",
+      "properties": {
+        "x": {"type": "integer"},
+        "y": {"type": "integer"},
+        "width": {"type": "integer"},
+        "height": {"type": "integer"}
+      },
+      "required": ["x", "y", "width", "height"]
+    }
+  },
+  "properties": {
+    "sprites": {
+      "type": "object",
+      "patternProperties": {
+        "^.*$": {"$ref": "#/definitions/spriteDefinition"}
+      }
+    }
+  },
+  "required": ["sprites"]
+}

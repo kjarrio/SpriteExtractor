@@ -7,39 +7,14 @@ import io.github.kjarrio.extractor.objects.ImageData;
 import io.github.kjarrio.extractor.objects.ImageFramesPair;
 import io.github.kjarrio.extractor.parsers.SheetParser;
 import io.github.kjarrio.extractor.parsers.AbstractParser;
-import io.github.kjarrio.extractor.utils.JsonUtils;
 import java.io.File;
 import java.util.*;
 
 public class JsonHashParser extends AbstractParser implements SheetParser {
 
-    { this.EXTENSION = "json"; }
-
-    @Override
-    public Boolean checkType(File inputFile) {
-
-        if (!JsonUtils.isJsonFile(inputFile)) return false;
-
-        try {
-
-            String contents = readFile(inputFile);
-
-            JsonObject json = JsonParser.parseString(contents).getAsJsonObject();
-
-            if (!json.has("frames")) {
-                return false;
-            }
-
-            if (json.get("frames").isJsonObject()) {
-                return true;
-            }
-
-        } catch (Exception e) {
-            return false;
-        }
-
-        return false;
-
+    {
+        this.JSON_SCHEMA = "json_hash_schema.json";
+        this.EXTENSION = "json";
     }
 
     @Override

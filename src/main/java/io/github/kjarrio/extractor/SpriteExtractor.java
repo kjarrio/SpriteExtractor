@@ -1,6 +1,8 @@
 package io.github.kjarrio.extractor;
 
 import io.github.kjarrio.extractor.parsers.SheetParser;
+import io.github.kjarrio.extractor.parsers.json.BHiveParser;
+import io.github.kjarrio.extractor.parsers.json.CaatParser;
 import io.github.kjarrio.extractor.parsers.json.JsonArrayParser;
 import io.github.kjarrio.extractor.parsers.json.JsonHashParser;
 import io.github.kjarrio.extractor.parsers.other.*;
@@ -14,12 +16,14 @@ public class SpriteExtractor {
     private static final List<SheetParser> parsers = new ArrayList<>();
 
     static {
-        parsers.add(new JsonHashParser());
-        parsers.add(new JsonArrayParser());
-        parsers.add(new UnityTexture2dParser());
-        parsers.add(new Toolkit2dParser());
-        parsers.add(new AppGameKitParser());
         parsers.add(new AmethystParser());
+        parsers.add(new AppGameKitParser());
+        parsers.add(new CaatParser());
+        parsers.add(new BHiveParser());
+        parsers.add(new JsonArrayParser());
+        parsers.add(new JsonHashParser());
+        parsers.add(new Toolkit2dParser());
+        parsers.add(new UnityTexture2dParser());
     }
 
     public static void extract(String spriteSheetFile, String outputDir) throws Exception {

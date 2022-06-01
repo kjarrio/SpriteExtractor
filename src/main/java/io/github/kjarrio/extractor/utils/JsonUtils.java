@@ -2,14 +2,24 @@ package io.github.kjarrio.extractor.utils;
 
 import com.google.gson.JsonParser;
 import org.apache.commons.io.FileUtils;
+import org.everit.json.schema.Schema;
+import org.everit.json.schema.loader.SchemaLoader;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 import java.io.File;
 import java.io.IOException;
 
 public class JsonUtils {
 
+    public static Boolean validateSchema(File jsonFile, String schemaFile) {
+        String schemaContents = FSUtils.readResourceFile(schemaFile);
+        String jsonContents = FSUtils.readFile(jsonFile);
+        return validateSchema(schemaContents, jsonContents);
+    }
+
     public static Boolean isJsonFile(File jsonFile) {
         try {
-            return FormatUtils.hasExtension(jsonFile, "json") && isValidJson(FileUtils.readFileToString(jsonFile, "UTF-8"));
+            return FSUtils.hasExt(jsonFile, "json") && isValidJson(FileUtils.readFileToString(jsonFile, "UTF-8"));
         } catch (IOException e) {
             return false;
         }
@@ -30,4 +40,17 @@ public class JsonUtils {
         return true;
 
     }
+
+    public static Boolean validateSchema(String schemaContents, String jsonContents) {
+        try  {
+
+            JSONObject rawSchema = new JSONObject(new JSONTokener(schemaContents));
+            Schema schema = SchemaLoader.load(rawSchema);
+            schema.validate(new JSONObject(jsonContents)); // throws a ValidationException if not valid
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
 }

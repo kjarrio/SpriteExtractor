@@ -17,14 +17,14 @@
 ],
 
 "animations": {
-    "Windows_7_zip_Icon_256": { "frames": [0] },
-    "Windows_7_zip_Icon_128": { "frames": [1] },
-    "Windows_7_zip_Icon_64": { "frames": [2] },
-    "Windows_7_zip_Icon_96": { "frames": [3] },
-    "Windows_7_zip_Icon_16": { "frames": [4] },
-    "Windows_7_zip_Icon_48": { "frames": [5] },
-    "Windows_7_zip_Icon_72": { "frames": [6] },
-    "Windows_7_zip_Icon_32": { "frames": [7] }
+    "icon_256": { "frames": [0] },
+    "icon_128": { "frames": [1] },
+    "icon_64": { "frames": [2] },
+    "icon_96": { "frames": [3] },
+    "icon_16": { "frames": [4] },
+    "icon_48": { "frames": [5] },
+    "icon_72": { "frames": [6] },
+    "icon_32": { "frames": [7] }
 },
 
 "texturepacker": [

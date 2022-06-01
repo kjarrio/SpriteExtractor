@@ -2,7 +2,7 @@ package io.github.kjarrio.extractor.parsers;
 
 import io.github.kjarrio.extractor.objects.ImageFrame;
 import io.github.kjarrio.extractor.objects.ImageFramesPair;
-import io.github.kjarrio.extractor.utils.FormatUtils;
+import io.github.kjarrio.extractor.utils.FSUtils;
 import io.github.kjarrio.extractor.utils.ImageUtils;
 import io.github.kjarrio.extractor.utils.JsonUtils;
 import org.apache.commons.io.FileUtils;
@@ -15,10 +15,19 @@ import java.util.List;
 
 public abstract class AbstractParser implements SheetParser {
 
+    protected String JSON_SCHEMA;
     protected String EXTENSION;
 
     public Boolean checkType(File inputFile) {
-        return FormatUtils.hasExtension(inputFile, EXTENSION);
+
+        Boolean hasExt = FSUtils.hasExt(inputFile, EXTENSION);
+
+        if (JSON_SCHEMA != null) {
+            return hasExt && JsonUtils.validateSchema(inputFile, JSON_SCHEMA);
+        }
+
+        return hasExt;
+
     }
 
     protected abstract ImageFramesPair parse(File inputFile, File outputFolder) throws Exception;
@@ -28,7 +37,6 @@ public abstract class AbstractParser implements SheetParser {
         ImageFramesPair parsed = parse(inputFile, outputFolder);
         extractImages(parsed.getImage(), outputFolder, parsed.getFrames());
     }
-
 
     protected File getImageFile(File inputFile) throws Exception {
         String ext = FilenameUtils.getExtension(inputFile.getName());
@@ -82,7 +90,7 @@ public abstract class AbstractParser implements SheetParser {
 
                 String fileName = FilenameUtils.removeExtension(frame.name + ".png");
 
-                ImageUtils.save(spriteImg, new File(outputFolder, fileName));
+                ImageUtils.save(spriteImg, new File(outputFolder, fileName + ".png"));
 
             } catch (Exception e) {
                 throw new RuntimeException(e);

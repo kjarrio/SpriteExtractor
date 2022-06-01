@@ -13,34 +13,34 @@ public class FormatUtils {
         return s.substring(s.indexOf(sub) + sub.length()).trim();
     }
 
-    public static Boolean hasString(File inputFile, String s) {
+    public static Boolean hasString(File inputFile, String... s) {
         try {
-            return FileUtils.readFileToString(inputFile, Charset.defaultCharset()).contains(s);
+            String c = FileUtils.readFileToString(inputFile, Charset.defaultCharset());
+
+            for (String string : s) {
+                if (!c.contains(string)) return false;
+            }
         } catch (IOException e) {
             return false;
         }
+        return true;
+    }
+
+    public static Boolean hasString(File inputFile, String s) {
+        return FSUtils.readFile(inputFile).contains(s);
     }
 
     public static Boolean checkStrings(File inputFile, String contains, String... notContains) {
-        try {
 
-            String contents = FileUtils.readFileToString(inputFile, Charset.defaultCharset());
+        String contents = FSUtils.readFile(inputFile);
 
-            if (!contents.contains(contains)) return false;
+        if (!contents.contains(contains)) return false;
 
-            for (String notContain : notContains)
-                if (contents.contains(notContain)) return false;
-
-        } catch (IOException e) {
-            return false;
-        }
+        for (String notContain : notContains)
+            if (contents.contains(notContain)) return false;
 
         return true;
 
-    }
-
-    public static Boolean hasExtension(File inputFile, String ext) {
-        return inputFile.getName().toLowerCase().endsWith("." + ext);
     }
 
     public static List<String> readAndClean(File inputFile) {

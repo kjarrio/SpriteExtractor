@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.kjarrio.extractor</groupId>
     <artifactId>SpriteExtractor</artifactId>
-    <version>0.2</version>
+    <version>0.3</version>
     <packaging>jar</packaging>
 
     <name>Sprite Extractor - Extract images from sprite sheets.</name>
@@ -57,6 +57,12 @@
     </build>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.github.erosb</groupId>
+            <artifactId>everit-json-schema</artifactId>
+            <version>1.14.1</version>
+        </dependency>
 
         <dependency>
             <groupId>com.google.code.gson</groupId>

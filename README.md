@@ -6,8 +6,11 @@ It supports these formats:
 * 2D Toolkit
 * Amethyst
 * App Game Kit
+* BHive
+* CAAT
 * JSON (Hash)
 * JSON (Array)
+* MelonJS
 * Unity® - Texture2D
 
 *More formats will be supported soon...*

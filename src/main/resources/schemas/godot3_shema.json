@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "texturesDefinition": {
+      "properties": {
+        "textures": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/imageDefinition"
+          }
+        }
+      }
+    },
+    "imageDefinition": {
+      "properties": {
+        "image": {"type": "string"},
+        "size": {"$ref": "additional_defs.json#/definitions/w_h"},
+        "sprites": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/spriteDefinition"
+          }
+        }
+      }
+    },
+    "spriteDefinition": {
+      "type": "object",
+      "properties": {
+        "filename": {"type": "string"},
+        "region": {"$ref": "additional_defs.json#/definitions/x_y_w_h"},
+        "margin": {"$ref": "additional_defs.json#/definitions/x_y_w_h"}
+      },
+      "additionalProperties": false,
+      "required": ["filename", "region", "margin"]
+    }
+  },
+  "allOf": [
+    {"$ref": "#/definitions/texturesDefinition"}
+  ],
+  "required": ["frames"]
+}

@@ -2,16 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "definitions": {
-    "spriteDefinition": {
-      "type": "object",
-      "properties": {
-        "x": {"type": "integer"},
-        "y": {"type": "integer"},
-        "width": {"type": "integer"},
-        "height": {"type": "integer"}
-      },
-      "required": ["x", "y", "width", "height"]
-    }
+    "spriteDefinition": {"$ref": "additional_defs.json#/definitions/x_y_width_height"}
   },
   "properties": {
     "sprites": {

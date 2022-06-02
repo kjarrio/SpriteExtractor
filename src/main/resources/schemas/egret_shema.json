@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "fileDefinition": {"properties": {"file": {"type": "string"}}},
+    "frameDefinition": {
+      "properties": {
+        "frames": {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {"$ref": "#/definitions/spriteDefinition"
+            }
+          }
+        }
+      }
+    },
+    "spriteDefinition": {
+      "type": "object",
+      "properties": {
+        "x": {"type": "integer"},
+        "y": {"type": "integer"},
+        "w": {"type": "integer"},
+        "h": {"type": "integer"},
+        "offX": {"type": "integer"},
+        "offY": {"type": "integer"},
+        "sourceW": {"type": "integer"},
+        "sourceH": {"type": "integer"}
+      },
+      "required": ["x", "y", "w", "h"],
+      "additionalProperties": false
+    },
+    "metaDefinition": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "properties": {
+            "sheetsize": {"type": "string"},
+            "exporter": {"type": "string"}
+          },
+          "required": ["sheetsize"],
+          "additionalProperties": true
+        }
+      }
+    }
+  },
+  "allOf": [
+    {"$ref": "#/definitions/fileDefinition"},
+    {"$ref": "#/definitions/frameDefinition"},
+    {"$ref": "#/definitions/metaDefinition"}
+
+  ],
+  "required": ["file", "frames", "meta"]
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "imagesDefinition": {"properties": {"images": {"type": "array", "items": {"type": "string"}}}},
+    "framerateDefinition": {"properties": {"framerate": {"type": "integer"}}},
+    "frameDefinition": {
+      "properties": {
+        "frames": {
+          "type": "array",
+          "items": {"$ref": "#/definitions/spriteDefinition"}
+        }
+      }
+    },
+    "spriteDefinition": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {"type": "integer", "additionalItems": false}
+    },
+    "animationsDefinition": {
+      "properties": {
+        "animations": {
+          "type": "object",
+          "patternProperties": {"^.*$": {"$ref": "#/definitions/animationDefinition"}}
+        }
+      }
+    },
+    "animationDefinition": {
+      "properties": {
+        "frames": {
+          "type": "array",
+          "items": {"type": "integer"}
+        }
+      }
+    }
+  },
+  "allOf": [
+    {"$ref": "#/definitions/imagesDefinition"},
+    {"$ref": "#/definitions/framerateDefinition"},
+    {"$ref": "#/definitions/frameDefinition"},
+    {"$ref": "#/definitions/animationsDefinition"}
+  ],
+  "required": ["images", "framerate", "frames", "animations"]
+}

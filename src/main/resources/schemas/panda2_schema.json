@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "frameDefinition": {
+      "properties": {
+        "frames": {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {"$ref": "#/definitions/spriteDefinition"}
+          }
+        }
+      }
+    },
+    "spriteDefinition": {
+      "type": "object",
+      "properties": {
+        "x": {"type": "integer"},
+        "y": {"type": "integer"},
+        "w": {"type": "integer"},
+        "h": {"type": "integer"},
+        "sx": {"type": "integer"},
+        "sy": {"type": "integer"},
+        "sw": {"type": "integer"},
+        "sh": {"type": "integer"},
+        "ax": {"type": "integer"},
+        "ay": {"type": "integer"}
+      },
+      "required": ["x", "y", "w", "h", "sx", "sy", "sw", "sh", "ax", "ay"],
+      "additionalProperties": false
+    },
+    "metaDefinition": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "properties": {
+            "app": {"type": "string"},
+            "exporter": {"type": "string"},
+            "image": {"type": "string"},
+            "smartupdate": {"type": "string"}
+          },
+          "required": ["image"],
+          "additionalProperties": true
+        }
+      }
+    }
+  },
+  "allOf": [
+    {"$ref": "#/definitions/frameDefinition"},
+    {"$ref": "#/definitions/metaDefinition"}
+  ],
+  "required": ["frames", "meta"]
+}

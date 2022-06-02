@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "frameDefinition": {
+      "properties": {
+        "frames": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/spriteDefinition"
+          }
+        }
+      }
+    },
+    "spriteDefinition": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "position": {"$ref": "additional_defs.json#/definitions/x_y"},
+        "size": {"$ref": "additional_defs.json#/definitions/w_h"}
+      },
+      "required": ["name", "position", "size"]
+    },
+    "metaDefinition": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "properties": {
+            "app": {"type": "string"},
+            "description": {"type": "string"},
+            "version": {"type": "string"},
+            "image": {"type": "string"},
+            "size": {"$ref": "additional_defs.json#/definitions/w_h"},
+            "smartupdate": {"type": "string"}
+          },
+          "required": ["image", "size"],
+          "additionalProperties": true
+        }
+      }
+    }
+  },
+  "allOf": [
+    {"$ref": "#/definitions/frameDefinition"},
+    {"$ref": "#/definitions/metaDefinition"}
+  ],
+  "required": ["frames", "meta"]
+}

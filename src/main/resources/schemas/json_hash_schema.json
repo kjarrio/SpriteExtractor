@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "definitions": {
+    "frameDefinition": {
+      "properties": {
+        "frames": {
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {"$ref": "#/definitions/spriteDefinition"}
+          }
+        }
+      }
+    },
+    "spriteDefinition": {
+      "type": "object",
+      "properties": {
+        "frame": {"$ref": "additional_defs.json#/definitions/x_y_w_h"},
+        "rotated": {"type": "boolean"},
+        "trimmed": {"type": "boolean"},
+        "spriteSourceSize": {"$ref": "additional_defs.json#/definitions/x_y_w_h"},
+        "sourceSize": {"$ref": "additional_defs.json#/definitions/w_h"}
+      },
+      "required": ["frame", "rotated", "trimmed", "spriteSourceSize", "sourceSize"]
+    },
+    "metaDefinition": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "properties": {
+            "image": {"type": "string"},
+            "format": {"type": "string"},
+            "size": {"$ref": "additional_defs.json#/definitions/w_h"},
+            "scale": {"type": "string"}
+          },
+          "required": ["image", "format", "size", "scale"],
+          "additionalProperties": true
+        }
+      }
+    }
+  },
+  "allOf": [
+    {"$ref": "#/definitions/frameDefinition"},
+    {"$ref": "#/definitions/metaDefinition"}
+  ],
+  "required": ["frames", "meta"]
+}

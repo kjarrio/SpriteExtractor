@@ -15,50 +15,46 @@
     "additionalProperties": false
   },
 
-  "definitions": {
-
-
-    "w_h": {
-      "type": "object",
-      "properties": {
-        "w": {"type": "integer"},
-        "h": {"type": "integer"}
-      },
-      "required": ["w", "h"],
-      "additionalProperties": false
+  "w_h": {
+    "type": "object",
+    "properties": {
+      "w": {"type": "integer"},
+      "h": {"type": "integer"}
     },
-    "x_y": {
-      "type": "object",
-      "properties": {
-        "x": {"type": "integer"},
-        "y": {"type": "integer"}
-      },
-      "required": ["x", "y"],
-      "additionalProperties": false
+    "required": ["w", "h"],
+    "additionalProperties": false
+  },
+  "x_y": {
+    "type": "object",
+    "properties": {
+      "x": {"type": "integer"},
+      "y": {"type": "integer"}
     },
-    "x_y_width_height_ratio": {
-      "type": "object",
-      "properties": {
-        "x": {"type": "integer"},
-        "y": {"type": "integer"},
-        "width": {"type": "integer"},
-        "height": {"type": "integer"},
-        "pixelRatio": {"type": "string"}
-      },
-      "required": ["x", "y", "width", "height", "pixelRatio"],
-      "additionalProperties": false
+    "required": ["x", "y"],
+    "additionalProperties": false
+  },
+  "x_y_width_height_ratio": {
+    "type": "object",
+    "properties": {
+      "x": {"type": "integer"},
+      "y": {"type": "integer"},
+      "width": {"type": "integer"},
+      "height": {"type": "integer"},
+      "pixelRatio": {"type": "string"}
     },
-    "idx_x_y_w_h": {
-      "type": "object",
-      "properties": {
-        "idx": {"type": "integer"},
-        "x": {"type": "integer"},
-        "y": {"type": "integer"},
-        "w": {"type": "integer"},
-        "h": {"type": "integer"}
-      },
-      "required": ["idx", "x", "y", "w", "h"],
-      "additionalProperties": false
-    }
+    "required": ["x", "y", "width", "height", "pixelRatio"],
+    "additionalProperties": false
+  },
+  "idx_x_y_w_h": {
+    "type": "object",
+    "properties": {
+      "idx": {"type": "integer"},
+      "x": {"type": "integer"},
+      "y": {"type": "integer"},
+      "w": {"type": "integer"},
+      "h": {"type": "integer"}
+    },
+    "required": ["idx", "x", "y", "w", "h"],
+    "additionalProperties": false
   }
 }

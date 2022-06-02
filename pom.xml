@@ -125,36 +125,60 @@
 
     <dependencies>
 
+        <!-- Data format extension for Jackson to offer alternative support for serializing
+             POJOs as XML and deserializing XML as POJOs. -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+
+        <!-- A Java library for working with property lists -->
+        <dependency>
+            <groupId>com.googlecode.plist</groupId>
+            <artifactId>dd-plist</artifactId>
+            <version>1.23</version>
+        </dependency>
+
+        <!-- A JSON Schema validator for Java -->
         <dependency>
             <groupId>com.github.erosb</groupId>
             <artifactId>everit-json-schema</artifactId>
             <version>1.14.1</version>
         </dependency>
 
+        <!-- JSON Parser Library from Google -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.9.0</version>
         </dependency>
 
+        <!-- The Apache Commons IO library contains utility classes, stream implementations,
+             file filters, file comparators, endian transformation classes, and much more. -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.11.0</version>
         </dependency>
 
+        <!-- The Apache Commons Lang library contains classes for working with various types of
+             primitives, strings, collections, arrays, lists, maps, and more. -->
         <dependency>
             <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
 
+        <!-- The Apache Commons Collections package contains types that extend and augment
+             the Java Collections Framework. -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-collections4</artifactId>
             <version>4.4</version>
         </dependency>
 
+        <!-- imgscalr - A Java Image Scaling Library -->
         <dependency>
             <groupId>org.imgscalr</groupId>
             <artifactId>imgscalr-lib</artifactId>

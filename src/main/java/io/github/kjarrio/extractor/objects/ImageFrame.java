@@ -2,6 +2,12 @@ package io.github.kjarrio.extractor.objects;
 
 public class ImageFrame {
 
+    public ImageFrame() {}
+
+    public ImageFrame(String name) {
+        this.name = name;
+    }
+
     public String name;
 
     public Integer rectX;

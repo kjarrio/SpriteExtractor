@@ -1,12 +1,13 @@
 package io.github.kjarrio.extractor;
 
-import io.github.kjarrio.extractor.parsers.SheetParser;
+import io.github.kjarrio.extractor.parsers.base.SheetParser;
 import io.github.kjarrio.extractor.parsers.json.BHiveParser;
 import io.github.kjarrio.extractor.parsers.json.CaatParser;
 import io.github.kjarrio.extractor.parsers.json.JsonArrayParser;
 import io.github.kjarrio.extractor.parsers.json.JsonHashParser;
 import io.github.kjarrio.extractor.parsers.other.*;
-
+import io.github.kjarrio.extractor.parsers.plist.Cocos2DParser;
+import io.github.kjarrio.extractor.parsers.xml.CeGUIOgreParser;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ public class SpriteExtractor {
         parsers.add(new AmethystParser());
         parsers.add(new AppGameKitParser());
         parsers.add(new CaatParser());
+        parsers.add(new CeGUIOgreParser());
+        parsers.add(new Cocos2DParser());
         parsers.add(new BHiveParser());
         parsers.add(new JsonArrayParser());
         parsers.add(new JsonHashParser());

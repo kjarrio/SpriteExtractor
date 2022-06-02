@@ -1,33 +1,21 @@
-package io.github.kjarrio.extractor.parsers;
+package io.github.kjarrio.extractor.parsers.base;
 
 import io.github.kjarrio.extractor.objects.ImageFrame;
-import io.github.kjarrio.extractor.objects.ImageFramesPair;
+import io.github.kjarrio.extractor.pair.ImageFramesPair;
 import io.github.kjarrio.extractor.utils.FSUtils;
 import io.github.kjarrio.extractor.utils.ImageUtils;
-import io.github.kjarrio.extractor.utils.JsonUtils;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.imgscalr.Scalr;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 public abstract class AbstractParser implements SheetParser {
 
-    protected String JSON_SCHEMA;
     protected String EXTENSION;
 
     public Boolean checkType(File inputFile) {
-
-        Boolean hasExt = FSUtils.hasExt(inputFile, EXTENSION);
-
-        if (JSON_SCHEMA != null) {
-            return hasExt && JsonUtils.validateSchema(inputFile, JSON_SCHEMA);
-        }
-
-        return hasExt;
-
+        return FSUtils.hasExt(inputFile, EXTENSION);
     }
 
     protected abstract ImageFramesPair parse(File inputFile, File outputFolder) throws Exception;
@@ -45,30 +33,6 @@ public abstract class AbstractParser implements SheetParser {
         return inputImage;
     }
 
-    protected String readFile(File inputFile) throws Exception {
-
-        String contents;
-
-        String absolutePath = inputFile.getAbsolutePath();
-
-        try {
-            contents = FileUtils.readFileToString(inputFile, "UTF-8");
-        } catch (IOException e) {
-            throw new Exception("Error reading file: " + absolutePath);
-        }
-
-        if (contents.isEmpty()) {
-            throw new Exception("File is empty: " + absolutePath);
-        }
-
-        if (JsonUtils.isJsonFile(inputFile) && !JsonUtils.isValidJson(contents)) {
-            throw new Exception("Invalid JSON file: " + absolutePath);
-        }
-
-        return contents;
-
-    }
-
     protected void extractImages(File inputImage, File outputFolder, List<ImageFrame> frames) throws Exception {
 
         BufferedImage inputImg = ImageUtils.read(inputImage);
@@ -79,6 +43,9 @@ public abstract class AbstractParser implements SheetParser {
             try {
 
                 BufferedImage spriteImg = ImageUtils.rectangle(inputImg, frame.rectX, frame.rectY, frame.rectW, frame.rectH);
+
+                if (frame.width == null) frame.width = frame.rectW;
+                if (frame.height == null) frame.height = frame.rectH;
 
                 // Rotate
                 if (frame.rotated)

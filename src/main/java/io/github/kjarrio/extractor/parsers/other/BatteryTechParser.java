@@ -1,10 +1,10 @@
 package io.github.kjarrio.extractor.parsers.other;
 
 import io.github.kjarrio.extractor.objects.ImageFrame;
-import io.github.kjarrio.extractor.objects.ImageFramesPair;
-import io.github.kjarrio.extractor.objects.IntPair;
-import io.github.kjarrio.extractor.parsers.AbstractParser;
-import io.github.kjarrio.extractor.parsers.SheetParser;
+import io.github.kjarrio.extractor.pair.ImageFramesPair;
+import io.github.kjarrio.extractor.pair.IntPair;
+import io.github.kjarrio.extractor.parsers.base.AbstractParser;
+import io.github.kjarrio.extractor.parsers.base.SheetParser;
 import io.github.kjarrio.extractor.utils.FormatUtils;
 import org.apache.commons.io.FileUtils;
 import java.io.File;

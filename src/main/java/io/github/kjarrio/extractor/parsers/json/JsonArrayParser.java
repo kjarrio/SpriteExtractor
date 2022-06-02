@@ -3,8 +3,9 @@ package io.github.kjarrio.extractor.parsers.json;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import io.github.kjarrio.extractor.objects.FrameBuilder;
 import io.github.kjarrio.extractor.objects.ImageFrame;
-import io.github.kjarrio.extractor.parsers.SheetParser;
+import io.github.kjarrio.extractor.parsers.base.SheetParser;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,28 +23,14 @@ public class JsonArrayParser extends JsonHashParser implements SheetParser {
         List<ImageFrame> imageFrames = new ArrayList<>();
 
         for (JsonElement element : frames) {
-
-            JsonObject imageObject = element.getAsJsonObject();
-            JsonObject frameObject = imageObject.getAsJsonObject("frame");
-            JsonObject spriteSourceSizeObject = imageObject.getAsJsonObject("spriteSourceSize");
-            JsonObject sourceSizeObject = imageObject.getAsJsonObject("sourceSize");
-
-            ImageFrame imageFrame = new ImageFrame();
-
-            imageFrame.name = imageObject.get("filename").getAsString();
-            imageFrame.rectX = frameObject.get("x").getAsInt();
-            imageFrame.rectY = frameObject.get("y").getAsInt();
-            imageFrame.rectW = frameObject.get("w").getAsInt();
-            imageFrame.rectH = frameObject.get("h").getAsInt();
-            imageFrame.rotated = imageObject.get("rotated").getAsBoolean();
-            imageFrame.trimmed = imageObject.get("trimmed").getAsBoolean();
-            imageFrame.offsetX = spriteSourceSizeObject.get("x").getAsInt();
-            imageFrame.offsetY = spriteSourceSizeObject.get("y").getAsInt();
-            imageFrame.width = sourceSizeObject.get("w").getAsInt();
-            imageFrame.height = sourceSizeObject.get("h").getAsInt();
-
-            imageFrames.add(imageFrame);
-
+            JsonObject imgObj = element.getAsJsonObject();
+            ImageFrame fr = new ImageFrame(imgObj.get("filename").getAsString());
+            FrameBuilder.rect(fr, imgObj.getAsJsonObject("frame"));
+            FrameBuilder.rotated(fr, imgObj);
+            FrameBuilder.trimmed(fr, imgObj);
+            FrameBuilder.offsets(fr, imgObj.getAsJsonObject("spriteSourceSize"));
+            FrameBuilder.size(fr, imgObj.getAsJsonObject("sourceSize"));
+            imageFrames.add(fr);
         }
 
         return imageFrames;

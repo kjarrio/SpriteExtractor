@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "definitions": {
     "frameDefinition": {
@@ -16,8 +16,8 @@
       "type": "object",
       "properties": {
         "name": {"type": "string"},
-        "position": {"$ref": "additional_defs.json#/definitions/x_y"},
-        "size": {"$ref": "additional_defs.json#/definitions/w_h"}
+        "position": {"$ref": "/schemas/addons.json#x_y"},
+        "size": {"$ref": "/schemas/addons.json#w_h"}
       },
       "required": ["name", "position", "size"]
     },
@@ -31,7 +31,7 @@
             "description": {"type": "string"},
             "version": {"type": "string"},
             "image": {"type": "string"},
-            "size": {"$ref": "additional_defs.json#/definitions/w_h"},
+            "size": {"$ref": "/schemas/addons.json#w_h"},
             "smartupdate": {"type": "string"}
           },
           "required": ["image", "size"],

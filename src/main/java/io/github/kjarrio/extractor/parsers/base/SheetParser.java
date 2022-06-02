@@ -1,4 +1,4 @@
-package io.github.kjarrio.extractor.parsers;
+package io.github.kjarrio.extractor.parsers.base;
 
 import java.io.File;
 

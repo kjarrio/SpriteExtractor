@@ -2,15 +2,18 @@ package io.github.kjarrio.extractor.parsers.json;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.github.kjarrio.extractor.objects.FrameBuilder;
 import io.github.kjarrio.extractor.objects.ImageFrame;
 import io.github.kjarrio.extractor.objects.ImageData;
-import io.github.kjarrio.extractor.objects.ImageFramesPair;
-import io.github.kjarrio.extractor.parsers.SheetParser;
-import io.github.kjarrio.extractor.parsers.AbstractParser;
+import io.github.kjarrio.extractor.pair.ImageFramesPair;
+import io.github.kjarrio.extractor.parsers.base.AbstractJSONParser;
+import io.github.kjarrio.extractor.parsers.base.SheetParser;
+import io.github.kjarrio.extractor.utils.FSUtils;
+
 import java.io.File;
 import java.util.*;
 
-public class JsonHashParser extends AbstractParser implements SheetParser {
+public class JsonHashParser extends AbstractJSONParser implements SheetParser {
 
     {
         this.JSON_SCHEMA = "json_hash_schema.json";
@@ -20,7 +23,7 @@ public class JsonHashParser extends AbstractParser implements SheetParser {
     @Override
     protected ImageFramesPair parse(File inputFile, File outputFolder) throws Exception {
 
-        String contents = readFile(inputFile);
+        String contents = FSUtils.readFile(inputFile);
 
         JsonObject json = JsonParser.parseString(contents).getAsJsonObject();
 
@@ -60,29 +63,15 @@ public class JsonHashParser extends AbstractParser implements SheetParser {
         Set<String> imageKeys = frames.keySet();
         List<ImageFrame> imageFrames = new ArrayList<>();
 
-        for (String imageKey : imageKeys) {
-
-            JsonObject imageObject = frames.getAsJsonObject(imageKey);
-            JsonObject frameObject = imageObject.getAsJsonObject("frame");
-            JsonObject spriteSourceSizeObject = imageObject.getAsJsonObject("spriteSourceSize");
-            JsonObject sourceSizeObject = imageObject.getAsJsonObject("sourceSize");
-
-            ImageFrame imageFrame = new ImageFrame();
-
-            imageFrame.name = imageKey;
-            imageFrame.rectX = frameObject.get("x").getAsInt();
-            imageFrame.rectY = frameObject.get("y").getAsInt();
-            imageFrame.rectW = frameObject.get("w").getAsInt();
-            imageFrame.rectH = frameObject.get("h").getAsInt();
-            imageFrame.rotated = imageObject.get("rotated").getAsBoolean();
-            imageFrame.trimmed = imageObject.get("trimmed").getAsBoolean();
-            imageFrame.offsetX = spriteSourceSizeObject.get("x").getAsInt();
-            imageFrame.offsetY = spriteSourceSizeObject.get("y").getAsInt();
-            imageFrame.width = sourceSizeObject.get("w").getAsInt();
-            imageFrame.height = sourceSizeObject.get("h").getAsInt();
-
-            imageFrames.add(imageFrame);
-
+        for (String name : imageKeys) {
+            JsonObject imgObj = frames.getAsJsonObject(name);
+            ImageFrame fr = new ImageFrame(name);
+            FrameBuilder.rect(fr, imgObj.getAsJsonObject("frame"));
+            FrameBuilder.rotated(fr, imgObj);
+            FrameBuilder.trimmed(fr, imgObj);
+            FrameBuilder.offsets(fr, imgObj.getAsJsonObject("spriteSourceSize"));
+            FrameBuilder.size(fr, imgObj.getAsJsonObject("sourceSize"));
+            imageFrames.add(fr);
         }
 
         return imageFrames;

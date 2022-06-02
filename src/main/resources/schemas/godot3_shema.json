@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "definitions": {
     "texturesDefinition": {
@@ -15,7 +15,7 @@
     "imageDefinition": {
       "properties": {
         "image": {"type": "string"},
-        "size": {"$ref": "additional_defs.json#/definitions/w_h"},
+        "size": {"$ref": "/schemas/addons.json#w_h"},
         "sprites": {
           "type": "array",
           "items": {
@@ -28,8 +28,8 @@
       "type": "object",
       "properties": {
         "filename": {"type": "string"},
-        "region": {"$ref": "additional_defs.json#/definitions/x_y_w_h"},
-        "margin": {"$ref": "additional_defs.json#/definitions/x_y_w_h"}
+        "region": {"$ref": "/schemas/addons.json#x_y_w_h"},
+        "margin": {"$ref": "/schemas/addons.json#x_y_w_h"}
       },
       "additionalProperties": false,
       "required": ["filename", "region", "margin"]

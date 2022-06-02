@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "definitions": {
     "frameDefinition": {
@@ -15,11 +15,11 @@
     "spriteDefinition": {
       "type": "object",
       "properties": {
-        "frame": {"$ref": "additional_defs.json#/definitions/x_y_w_h"},
+        "frame": {"$ref": "/schemas/addons.json#x_y_w_h"},
         "rotated": {"type": "boolean"},
         "trimmed": {"type": "boolean"},
-        "spriteSourceSize": {"$ref": "additional_defs.json#/definitions/x_y_w_h"},
-        "sourceSize": {"$ref": "additional_defs.json#/definitions/w_h"}
+        "spriteSourceSize": {"$ref": "/schemas/addons.json#x_y_w_h"},
+        "sourceSize": {"$ref": "/schemas/addons.json#w_h"}
       },
       "required": ["frame", "rotated", "trimmed", "spriteSourceSize", "sourceSize"]
     },
@@ -31,7 +31,7 @@
           "properties": {
             "image": {"type": "string"},
             "format": {"type": "string"},
-            "size": {"$ref": "additional_defs.json#/definitions/w_h"},
+            "size": {"$ref": "/schemas/addons.json#w_h"},
             "scale": {"type": "string"}
           },
           "required": ["image", "format", "size", "scale"],

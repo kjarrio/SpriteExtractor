@@ -9,6 +9,7 @@ It currently supports these formats:
 * AppGameKit
 * BHive
 * CAAT
+* CEGUI / OGRE
 * JSON (Hash)
 * JSON (Array)
 * MelonJS
@@ -40,19 +41,16 @@ SpriteExtractor.extract(spriteSheet, outputDir);
 ```
 ## Roadmap
 
-* Support multiple output image formats, it currently only support PNG.
-
 **The goal is to support as many formats as possible, such as:**
 
 * BatteryTech SDK **(Work in Progress)**
 * Blacksmith 2D
-* CEGUI / OGRE
 * cocos2d and cocos2d-x
 * CSS Simple & (Responsive/Retina)
 * EaselJS / CreateJS
 * Egret Engine
 * Gideros
-* Godot 3 SpriteSheet and TileSet
+* Godot 3
 * Kivy
 * Kwik (image sheet)
 * LayaAir 2.0
@@ -89,7 +87,12 @@ SpriteExtractor.extract(spriteSheet, outputDir);
 * XAML Resource Dictionary (NoesisGUI)
 * XML (generic)
 
-**Future goals also include converting between different types of formats.**
+**Future goals may also include:** 
+* Bitmap Fonts of all types
+* More image formats, it currently only support PNG.
+* Converting between different types of formats of sprite sheets.
+* Removing, replacing and adding images to existing sprite sheets.
+* Creating new sprite sheets from scratch.
 
 ## Contributing
 Pull requests are welcome and please make sure to update tests as appropriate.

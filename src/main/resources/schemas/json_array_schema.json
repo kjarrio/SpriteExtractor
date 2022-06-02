@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "definitions": {
     "frameDefinition": {
@@ -16,11 +16,11 @@
       "type": "object",
       "properties": {
         "filename": {"type": "string"},
-        "frame": {"$ref": "additional_defs.json#/definitions/x_y_w_h"},
+        "frame": {"$ref": "addons.json#/definitions/x_y_w_h"},
         "rotated": {"type": "boolean"},
         "trimmed": {"type": "boolean"},
-        "spriteSourceSize": {"$ref": "additional_defs.json#/definitions/x_y_w_h"},
-        "sourceSize": {"$ref": "additional_defs.json#/definitions/w_h"}
+        "spriteSourceSize": {"$ref": "addons.json#/definitions/x_y_w_h"},
+        "sourceSize": {"$ref": "addons.json#/definitions/w_h"}
       },
       "required": ["filename", "frame", "rotated", "trimmed", "spriteSourceSize", "sourceSize"]
     },
@@ -32,7 +32,7 @@
           "properties": {
             "image": {"type": "string"},
             "format": {"type": "string"},
-            "size": {"$ref": "additional_defs.json#/definitions/w_h"},
+            "size": {"$ref": "/schemas/addons.json#w_h"},
             "scale": {"type": "string"}
           },
           "required": ["image", "format", "size", "scale"],

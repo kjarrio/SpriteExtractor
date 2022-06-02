@@ -2,9 +2,11 @@ package io.github.kjarrio.extractor.parsers.json;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.github.kjarrio.extractor.objects.FrameBuilder;
 import io.github.kjarrio.extractor.objects.ImageFrame;
-import io.github.kjarrio.extractor.objects.ImageFramesPair;
-import io.github.kjarrio.extractor.parsers.SheetParser;
+import io.github.kjarrio.extractor.pair.ImageFramesPair;
+import io.github.kjarrio.extractor.parsers.base.SheetParser;
+import io.github.kjarrio.extractor.utils.FSUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +21,8 @@ public class CaatParser extends JsonHashParser implements SheetParser {
 
     @Override
     protected ImageFramesPair parse(File inputFile, File outputFolder) throws Exception {
-
-        // Parse the JSON
-        JsonObject json = JsonParser.parseString(readFile(inputFile)).getAsJsonObject();
-
+        JsonObject json = JsonParser.parseString(FSUtils.readFile(inputFile)).getAsJsonObject();
         return new ImageFramesPair(getImageFile(inputFile), parseFrames(json));
-
     }
 
     @Override
@@ -37,13 +35,9 @@ public class CaatParser extends JsonHashParser implements SheetParser {
 
         for (String imageName : imageKeys) {
             JsonObject imageObj = sprites.getAsJsonObject(imageName);
-            ImageFrame imageFrame = new ImageFrame();
-            imageFrame.name = imageName;
-            imageFrame.rectX = imageObj.get("x").getAsInt();
-            imageFrame.rectY = imageObj.get("y").getAsInt();
-            imageFrame.width = imageFrame.rectW = imageObj.get("width").getAsInt();
-            imageFrame.height = imageFrame.rectH = imageObj.get("height").getAsInt();
-            imageFrames.add(imageFrame);
+            ImageFrame fr = new ImageFrame(imageName);
+            FrameBuilder.rect(fr, imageObj);
+            imageFrames.add(fr);
 
         }
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FSUtils {
 
-    public static final String MAIN_RESOURCES = "/home/oem/IdeaProjects/SpriteExtractor/src/main/resources/";
+    public static final String MAIN_RESOURCES = "/home/oem/IdeaProjects/SpriteExtractor/src/main/resources/schemas/";
     public static final String TEST_RESOURCES = "/home/oem/IdeaProjects/SpriteExtractor/src/test/resources/";
 
     public static List<String> readResourceLines(String f) {

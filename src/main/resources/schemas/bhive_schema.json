@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/bhive_schema.json",
   "type": "object",
   "definitions": {
     "frameDefinition": {
@@ -15,9 +16,9 @@
     "spriteDefinition": {
       "type": "object",
       "properties": {
-        "frame": {"$ref": "/schemas/a_rect"},
-        "offset": {"$ref": "/schemas/addons.json/#definitions/x_y_w_h"},
-        "sourceSize": {"$ref": "/schemas/a_size"}
+        "frame": {"$ref": "addons.json#/definitions/x_y_w_h"},
+        "offset": {"$ref": "addons.json#/definitions/x_y"},
+        "sourceSize": {"$ref": "addons.json#/definitions/w_h"}
       },
       "required": ["frame", "offset", "sourceSize"]
     },
@@ -29,7 +30,7 @@
           "properties": {
             "image": {"type": "string"},
             "format": {"type": "string"},
-            "size": {"$ref": "/schemas/a_size"},
+            "size": {"$ref": "addons.json#/definitions/w_h"},
             "scale": {"type": "string"}
           },
           "required": ["image", "format", "size", "scale"],

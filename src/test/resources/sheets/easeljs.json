@@ -1,11 +1,7 @@
 {
-
-"images": [
-    "easeljs.png"
-],
-
-"framerate": 20,
-"frames": [
+  "images": ["easeljs.png"],
+  "framerate": 20,
+  "frames": [
     [1, 1, 256, 237, 0, 0, -15],
     [259, 1, 128, 120, 0, 0, -7],
     [389, 1, 64, 64, 0, 0, 0],
@@ -14,22 +10,19 @@
     [389, 67, 48, 48, 0, 0, 0],
     [357, 123, 72, 72, 0, 0, 0],
     [357, 197, 32, 32, 0, 0, 0]
-],
-
-"animations": {
-    "icon_256": { "frames": [0] },
-    "icon_128": { "frames": [1] },
-    "icon_64": { "frames": [2] },
-    "icon_96": { "frames": [3] },
-    "icon_16": { "frames": [4] },
-    "icon_48": { "frames": [5] },
-    "icon_72": { "frames": [6] },
-    "icon_32": { "frames": [7] }
-},
-
-"texturepacker": [
-        "SmartUpdateHash: $TexturePacker:SmartUpdate:c7b53cb72416378e1367b7e6d3325b63:4d0cd494931b5c5a590c9f268c100088:6e88b2c79da9aa596721c34a2071fa1e$",
-        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
-]
-
+  ],
+  "animations": {
+    "icon_256": {"frames": [0]},
+    "icon_128": {"frames": [1]},
+    "icon_64": {"frames": [2]},
+    "icon_96": {"frames": [3]},
+    "icon_16": {"frames": [4]},
+    "icon_48": {"frames": [5]},
+    "icon_72": {"frames": [6]},
+    "icon_32": {"frames": [7]}
+  },
+  "texturepacker": [
+    "SmartUpdateHash: $TexturePacker:SmartUpdate:c7b53cb72416378e1367b7e6d3325b63:4d0cd494931b5c5a590c9f268c100088:6e88b2c79da9aa596721c34a2071fa1e$",
+    "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+  ]
 }

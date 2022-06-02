@@ -140,7 +140,7 @@
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:3fc15e5ee241fc6ea1917ab1887bfd01:4d0cd494931b5c5a590c9f268c100088:fad045efb6305828a085498d94976890$</string>
             <key>textureFileName</key>
-            <string>cocos2d-x.plist.xml.png</string>
+            <string>cocos2d-x.png</string>
         </dict>
     </dict>
 </plist>

@@ -4,21 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>icon_128.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,-3}</string>
-                <key>spriteSize</key>
-                <string>{128,120}</string>
-                <key>spriteSourceSize</key>
-                <string>{128,128}</string>
-                <key>textureRect</key>
-                <string>{{259,1},{128,120}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
+<!--            <key>icon_128.png</key>-->
+<!--            <dict>-->
+<!--                <key>aliases</key>-->
+<!--                <array/>-->
+<!--                <key>spriteOffset</key>-->
+<!--                <string>{0,-3}</string>-->
+<!--                <key>spriteSize</key>-->
+<!--                <string>{128,120}</string>-->
+<!--                <key>spriteSourceSize</key>-->
+<!--                <string>{128,128}</string>-->
+<!--                <key>textureRect</key>-->
+<!--                <string>{{259,1},{128,120}}</string>-->
+<!--                <key>textureRotated</key>-->
+<!--                <true/>-->
+<!--            </dict>-->
             <key>icon_16.png</key>
             <dict>
                 <key>aliases</key>
@@ -134,13 +134,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>cocos2d.plist.png</string>
+            <string>cocos2d.png</string>
             <key>size</key>
             <string>{446,240}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:60c5a240346c71cf475af90b4a9813c8:4d0cd494931b5c5a590c9f268c100088:053f8d00b178137374d67b4bb34ae28b$</string>
             <key>textureFileName</key>
-            <string>cocos2d.plist.png</string>
+            <string>cocos2d.png</string>
         </dict>
     </dict>
 </plist>

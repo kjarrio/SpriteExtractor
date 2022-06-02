@@ -16,11 +16,11 @@
     "spriteDefinition": {
       "type": "object",
       "properties": {
-        "frame": {"$ref": "/schemas/addons.json#x_y_w_h"},
+        "frame": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/x_y_w_h"},
         "rotated": {"type": "boolean"},
         "trimmed": {"type": "boolean"},
-        "spriteSourceSize": {"$ref": "/schemas/addons.json#x_y_w_h"},
-        "sourceSize": {"$ref": "/schemas/addons.json#w_h"}
+        "spriteSourceSize": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/x_y_w_h"},
+        "sourceSize": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/w_h"}
       },
       "required": ["frame", "rotated", "trimmed", "spriteSourceSize", "sourceSize"]
     },
@@ -32,7 +32,7 @@
           "properties": {
             "image": {"type": "string"},
             "format": {"type": "string"},
-            "size": {"$ref": "/schemas/addons.json#w_h"},
+            "size": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/w_h"},
             "scale": {"type": "string"}
           },
           "required": ["image", "format", "size", "scale"],

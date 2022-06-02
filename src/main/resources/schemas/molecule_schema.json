@@ -17,8 +17,8 @@
       "type": "object",
       "properties": {
         "name": {"type": "string"},
-        "position": {"$ref": "/schemas/addons.json#x_y"},
-        "size": {"$ref": "/schemas/addons.json#w_h"}
+        "position": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/x_y"},
+        "size": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/w_h"}
       },
       "required": ["name", "position", "size"]
     },
@@ -32,7 +32,7 @@
             "description": {"type": "string"},
             "version": {"type": "string"},
             "image": {"type": "string"},
-            "size": {"$ref": "/schemas/addons.json#w_h"},
+            "size": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/w_h"},
             "smartupdate": {"type": "string"}
           },
           "required": ["image", "size"],

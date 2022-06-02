@@ -16,7 +16,7 @@
     "imageDefinition": {
       "properties": {
         "image": {"type": "string"},
-        "size": {"$ref": "/schemas/addons.json#w_h"},
+        "size": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/w_h"},
         "sprites": {
           "type": "array",
           "items": {
@@ -29,8 +29,8 @@
       "type": "object",
       "properties": {
         "filename": {"type": "string"},
-        "region": {"$ref": "/schemas/addons.json#x_y_w_h"},
-        "margin": {"$ref": "/schemas/addons.json#x_y_w_h"}
+        "region": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/x_y_w_h"},
+        "margin": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/x_y_w_h"}
       },
       "additionalProperties": false,
       "required": ["filename", "region", "margin"]

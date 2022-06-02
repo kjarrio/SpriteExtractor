@@ -3,6 +3,6 @@
   "$id": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/mapbox_schema.json",
   "type": "object",
   "patternProperties": {
-    "^.*$": {"$ref": "/schemas/addons.json#x_y_width_height_ratio"}
+    "^.*$": {"$ref": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json#definitions/x_y_width_height_ratio"}
   }
 }

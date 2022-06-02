@@ -14,7 +14,17 @@
     "required": ["x", "y", "width", "height"],
     "additionalProperties": false
   },
-
+  "x_y_w_h": {
+    "type": "object",
+    "properties": {
+      "x": {"type": "integer"},
+      "y": {"type": "integer"},
+      "w": {"type": "integer"},
+      "h": {"type": "integer"}
+    },
+    "required": ["x", "y", "w", "h"],
+    "additionalProperties": false
+  },
   "w_h": {
     "type": "object",
     "properties": {

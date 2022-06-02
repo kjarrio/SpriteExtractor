@@ -1,4 +1,4 @@
-package io.github.kjarrio.extractor.objects;
+package io.github.kjarrio.extractor.pair;
 
 public final class IntPair {
 
@@ -11,4 +11,13 @@ public final class IntPair {
         b = Integer.valueOf(parts[0]);
     }
 
+    public IntPair(Integer a, Integer b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    @Override
+    public String toString() {
+        return a + ", " + b;
+    }
 }

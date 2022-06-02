@@ -1,4 +1,6 @@
-package io.github.kjarrio.extractor.objects;
+package io.github.kjarrio.extractor.pair;
+
+import io.github.kjarrio.extractor.objects.ImageFrame;
 
 import java.io.File;
 import java.util.List;

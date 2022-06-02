@@ -3,29 +3,21 @@
   "$id": "https://raw.githubusercontent.com/kjarrio/SpriteExtractor/main/src/main/resources/schemas/addons.json",
   "type": "object",
   "additionalProperties": false,
+  "x_y_width_height": {
+    "type": "object",
+    "properties": {
+      "x": {"type": "integer"},
+      "y": {"type": "integer"},
+      "width": {"type": "integer"},
+      "height": {"type": "integer"}
+    },
+    "required": ["x", "y", "width", "height"],
+    "additionalProperties": false
+  },
+
   "definitions": {
-    "x_y_w_h": {
-        "type": "object",
-        "properties": {
-          "x": {"type": "integer"},
-          "y": {"type": "integer"},
-          "w": {"type": "integer"},
-          "h": {"type": "integer"}
-        },
-        "required": ["x", "y", "w", "h"],
-        "additionalProperties": false
-    },
-    "x_y_width_height": {
-      "type": "object",
-      "properties": {
-        "x": {"type": "integer"},
-        "y": {"type": "integer"},
-        "width": {"type": "integer"},
-        "height": {"type": "integer"}
-      },
-      "required": ["x", "y", "width", "height"],
-      "additionalProperties": false
-    },
+
+
     "w_h": {
       "type": "object",
       "properties": {

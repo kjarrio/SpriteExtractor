@@ -7,6 +7,7 @@ It currently supports these formats:
 * 2D Toolkit
 * Amethyst
 * AppGameKit
+* Blacksmith 2D
 * BHive
 * CAAT
 * CEGUI / OGRE
@@ -44,7 +45,6 @@ SpriteExtractor.extract(spriteSheet, outputDir);
 **The goal is to support as many formats as possible, such as:**
 
 * BatteryTech SDK **(Work in Progress)**
-* Blacksmith 2D
 * cocos2d and cocos2d-x
 * CSS Simple & (Responsive/Retina)
 * EaselJS / CreateJS

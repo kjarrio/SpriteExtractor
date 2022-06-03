@@ -2,20 +2,20 @@ package io.github.kjarrio.extractor.parsers.json;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import io.github.kjarrio.extractor.objects.FrameBuilder;
 import io.github.kjarrio.extractor.objects.ImageFrame;
 import io.github.kjarrio.extractor.pair.ImageFramesPair;
 import io.github.kjarrio.extractor.parsers.base.SheetParser;
 import io.github.kjarrio.extractor.utils.FSUtils;
+import io.github.kjarrio.extractor.utils.JsonUtils;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-public class CaatParser extends JsonHashParser implements SheetParser {
+public class Blacksmith2DParser extends JsonHashParser implements SheetParser {
 
     {
-        this.JSON_SCHEMA = "caat_schema.json";
+        this.JSON_SCHEMA = "blacksmith_2d_schema.json";
         this.EXTENSION = "json";
     }
 
@@ -28,15 +28,22 @@ public class CaatParser extends JsonHashParser implements SheetParser {
     @Override
     protected List<ImageFrame> parseFrames(JsonObject json) {
 
-        JsonObject sprites = json.getAsJsonObject("sprites");
+        JsonObject frames = json.getAsJsonObject("frames");
 
-        Set<String> imageKeys = sprites.keySet();
+        Set<String> imageKeys = frames.keySet();
         List<ImageFrame> imageFrames = new ArrayList<>();
 
         for (String imageName : imageKeys) {
-            JsonObject imageObj = sprites.getAsJsonObject(imageName);
+            List<Integer> integers = JsonUtils.getIntArray(frames.getAsJsonArray(imageName));
             ImageFrame fr = new ImageFrame(imageName);
-            FrameBuilder.rect(fr, imageObj);
+            fr.rectX = integers.get(0);
+            fr.rectY = integers.get(1);
+            fr.rectW = integers.get(2);
+            fr.rectH = integers.get(3);
+            fr.offsetX = integers.get(4);
+            fr.offsetY = integers.get(5);
+            fr.width = integers.get(6);
+            fr.height = integers.get(7);
             imageFrames.add(fr);
         }
 

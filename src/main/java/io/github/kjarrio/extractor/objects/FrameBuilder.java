@@ -13,7 +13,7 @@ public class FrameBuilder {
 
         if (hasFields(obj, "w", "h")) {
             fr.rectW = get(obj, "w");
-            fr.rectH = get(obj, "y");
+            fr.rectH = get(obj, "h");
 
         } else if (hasFields(obj, "width", "height")) {
             fr.rectW = get(obj, "width");
@@ -49,11 +49,11 @@ public class FrameBuilder {
     }
 
     public static void rotated(ImageFrame fr, JsonObject obj) {
-        fr.rotated = (hasFields(obj, "rotated") && obj.get("rotated").getAsBoolean());
+        fr.rotated = hasFields(obj, "rotated") && obj.get("rotated").getAsBoolean();
     }
 
     public static void trimmed(ImageFrame fr, JsonObject obj) {
-        fr.rotated = (hasFields(obj, "trimmed") && obj.get("trimmed").getAsBoolean());
+        fr.rotated = hasFields(obj, "trimmed") && obj.get("trimmed").getAsBoolean();
     }
 
     private static Integer get(JsonObject obj, String f) {

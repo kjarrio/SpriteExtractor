@@ -27,6 +27,12 @@ public class FrameBuilder {
         if (hasFields(obj, "x", "y")) {
             fr.offsetX = get(obj, "x");
             fr.offsetY = get(obj, "y");
+        } else if (hasFields(obj, "offsetX", "offsetY")) {
+            fr.offsetX = get(obj, "offsetX");
+            fr.offsetY = get(obj, "offsetY");
+        } else if (hasFields(obj, "offX", "offY")) {
+            fr.offsetX = get(obj, "offX");
+            fr.offsetY = get(obj, "offY");
         }
 
     }
@@ -40,6 +46,10 @@ public class FrameBuilder {
         } else if (hasFields(obj, "width", "height")) {
             fr.width = get(obj, "width");
             fr.height = get(obj, "height");
+
+        } else if (hasFields(obj, "sourceW", "sourceH")) {
+            fr.width = get(obj, "sourceW");
+            fr.height = get(obj, "sourceH");
 
         } else {
             fr.width = fr.rectW;

@@ -12,6 +12,7 @@ It currently supports these formats:
 * CAAT
 * CEGUI / OGRE
 * EaselJS / CreateJS
+* Egret Engine
 * JSON (Hash)
 * JSON (Array)
 * MelonJS
@@ -48,7 +49,7 @@ SpriteExtractor.extract(spriteSheet, outputDir);
 * BatteryTech SDK **(Work in Progress)**
 * cocos2d and cocos2d-x
 * CSS Simple & (Responsive/Retina)
-* Egret Engine
+
 * Gideros
 * Godot 3
 * Kivy

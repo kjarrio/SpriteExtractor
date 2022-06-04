@@ -11,6 +11,7 @@ It currently supports these formats:
 * BHive
 * CAAT
 * CEGUI / OGRE
+* EaselJS / CreateJS
 * JSON (Hash)
 * JSON (Array)
 * MelonJS
@@ -47,7 +48,6 @@ SpriteExtractor.extract(spriteSheet, outputDir);
 * BatteryTech SDK **(Work in Progress)**
 * cocos2d and cocos2d-x
 * CSS Simple & (Responsive/Retina)
-* EaselJS / CreateJS
 * Egret Engine
 * Gideros
 * Godot 3

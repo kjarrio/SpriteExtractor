@@ -15,6 +15,7 @@ It currently supports these formats:
 * Egret Engine
 * JSON (Hash)
 * JSON (Array)
+* Kivy
 * MelonJS
 * Unity® - Texture2D
 
@@ -49,10 +50,8 @@ SpriteExtractor.extract(spriteSheet, outputDir);
 * BatteryTech SDK **(Work in Progress)**
 * cocos2d and cocos2d-x
 * CSS Simple & (Responsive/Retina)
-
 * Gideros
 * Godot 3
-* Kivy
 * Kwik (image sheet)
 * LayaAir 2.0
 * LESS (css)

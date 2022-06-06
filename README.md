@@ -16,7 +16,10 @@ It currently supports these formats:
 * JSON (Hash)
 * JSON (Array)
 * Kivy
+* LayaAir 2.0
+* Mapbox
 * MelonJS
+* Molecule
 * Unity® - Texture2D
 
 **It will detect the format automatically and extract to a given output folder.**
@@ -53,13 +56,10 @@ SpriteExtractor.extract(spriteSheet, outputDir);
 * Gideros
 * Godot 3
 * Kwik (image sheet)
-* LayaAir 2.0
 * LESS (css)
 * LibGDX
 * libRocket RCSS
-* Mapbox
 * Moai
-* Molecule
 * MonoGame
 * Orx
 * Panda 2

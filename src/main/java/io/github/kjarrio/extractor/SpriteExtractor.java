@@ -23,6 +23,9 @@ public class SpriteExtractor {
         parsers.add(new BHiveParser());
         parsers.add(new JsonArrayParser());
         parsers.add(new JsonHashParser());
+        parsers.add(new LayaAir2Parser());
+        parsers.add(new MapBoxParser());
+        parsers.add(new MoleculeParser());
         parsers.add(new Toolkit2dParser());
         parsers.add(new UnityTexture2dParser());
     }
